@@ -5,3 +5,6 @@
 .shadow_login{
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
+.shadow_job{
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+}
