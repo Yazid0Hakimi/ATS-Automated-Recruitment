@@ -23,75 +23,75 @@ const JobCandidates = () => {
                     </div>
                 </div>
                 <div className='mt-20'>
-                    <table class="w-full text-left text-black">
-                        <thead class="uppercase border-b border-black">
+                    <table className="w-full text-left text-black">
+                        <thead className="uppercase border-b border-black">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Job Title
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Candidate Name
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Applied At
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Score Matching
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" className="px-6 py-3">
                                     Skills
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b border-black">
-                                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap ">
+                            <tr className="bg-white border-b border-black">
+                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
                                     Data Scientist
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     John Doe
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     2024-04-21
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     52 %
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     Python, Machine Learning, Data Analysis...
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b border-black">
-                                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap ">
+                            <tr className="bg-white border-b border-black">
+                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
                                     Data Scientist
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     Jane Doe
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     2024-04-21
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     52 %
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     Python, Machine Learning, Data Analysis...
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b border-black">
-                                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap ">
+                            <tr className="bg-white border-b border-black">
+                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
                                     Data Scientist
                                 </th>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     John Doe
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     2024-04-21
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     52 %
                                 </td>
-                                <td class="px-6 py-4">
+                                <td className="px-6 py-4">
                                     Python, Machine Learning, Data Analysis...
                                 </td>
                             </tr>
