@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Document(collection = "applications")
 @Data
@@ -14,9 +15,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class Application {
     @Id
-    private String id;
+    private UUID id;
     private String jobDescriptionId;
     private String userId;
-    private String recruterId;
+    private String company;
     private Date date;
+    private status status;// enum type for pending accept reject
+
 }

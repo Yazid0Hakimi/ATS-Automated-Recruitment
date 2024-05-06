@@ -7,18 +7,22 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data @AllArgsConstructor @NoArgsConstructor
-@Document(collection = "candidate")
+@Document(collection = "candidates")
 public class Candidate{
     @Id
-    private String id;
+    private UUID id;
     private String firstName;
     private String lastName;
     private String email;
-    private String address;
+    private String bio;
+    private String password;
     private String phone;
-    private Role role; // 'recruiter' or 'candidate' or 'admin'
+    private String profilePicture;
     private List<String> skills; // List of skills
     private List<String> languages; // List of languages
+    private List<Education> education; // List of languages
+    private List<Experience> experience; // List of languages
 }

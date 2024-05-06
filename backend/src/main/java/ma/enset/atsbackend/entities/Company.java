@@ -6,18 +6,21 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import java.util.UUID;
+
 
 @Data @AllArgsConstructor @NoArgsConstructor
-@Document(collection = "recruiter")
-public class Recruiter {
+@Document(collection = "Companies")
+public class Company {
     @Id
-    private String id;
-    private String firstName;
-    private String lastName;
+    private UUID id;
     private String email;
-    private String address;
+    private String password;
+    private String Logo;
     private String phone;
-    private Role role; // 'recruiter' or 'candidate' or 'admin'
+    private String domain;
+    private String website;
     private String companyDescription; // 'recruiter' or 'candidate' or 'admin'
+    private String HeadcarterCity;
+
 }

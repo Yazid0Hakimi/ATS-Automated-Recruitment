@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Document(collection = "jobDescriptions")
 @Data
@@ -15,14 +16,20 @@ import java.util.List;
 @NoArgsConstructor
 public class JobDescription {
     @Id
-    private String id;
+    private UUID id;
     private Date date;
     private String description;
-    private String image;
+    private List<String> requirements;
     private String jobTitle;
-    private String entrepriseName;
-    private String workTime;
-    private String city;
-    private String recruiterId; // Id of the recruiter who posted the job
+    private String JobType; // full time parte time .....
+    private String JobLocation ; //  remote hybrid ...
+    private String city; // job city
+    private Double salaryRangeMin;
+    private Double salaryRangeMax;
+    private String jobDomaine;
+
+
+    private Company company; // Id of the recruiter who posted the job
+
     private List<String> applicationIds; // Ids of applications received for this job
 }
