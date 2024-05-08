@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Job {
     @Id
-    private String id;
+    private int id;
     private Date date;
     private String description;
     private String image;

@@ -13,6 +13,7 @@ import java.util.UUID;
 public class Company {
     @Id
     private String id;
+    private String name;
     private String email;
     private String password;
     private String logo;
