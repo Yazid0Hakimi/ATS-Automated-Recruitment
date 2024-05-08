@@ -6,20 +6,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
-public class Company {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Job {
     @Id
     private String id;
-    private String email;
-    private String password;
-    private String logo;
-    private String phone;
+    private Date date;
     private String description;
+    private String image;
+    private String jobTitle;
+    private String enterpriseName;
+    private String workTime;
     private String city;
-    private String industry;
-    private String website;
-
+    private String recruiterId;
 }

@@ -1,28 +1,23 @@
 package ma.enset.atsbackend.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 import java.util.UUID;
-
-@Data @AllArgsConstructor @NoArgsConstructor
-@Document(collection = "candidates")
-public class Candidate{
-    @Id
-    private UUID id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String bio;
-    private String password;
+@Data
+@Entity
+@Table(name = "candidate")
+public class Candidate extends AtsUser{
+    private String address;
     private String phone;
-    private String profilePicture;
-    private List<String> skills; // List of skills
-    private List<String> languages; // List of languages
-    private List<Education> education; // List of languages
-    private List<Experience> experience; // List of languages
+    private String gender;
+    private String city;
+    private String profilePic;
+    private String bio;
+
 }

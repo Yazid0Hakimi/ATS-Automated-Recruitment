@@ -6,18 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Education {
+public class Languages {
     @Id
     private int id;
-    private String school;
-    private String diploma;
-    private String speciality;
-    private Date startDate;
-    private Date endDate;
+    private String name;
 }
