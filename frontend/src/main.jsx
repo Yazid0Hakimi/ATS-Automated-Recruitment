@@ -12,6 +12,8 @@ import Home from './pages/Home.jsx';
 import JobDetails from './pages/JobDetails.jsx';
 import MyJobs from './pages/MyJobs.jsx';
 import JobCandidates from './pages/JobCandidates.jsx';
+import RegistrationChoicePage from './pages/RegistrationChoicePage.jsx';
+import CandidateRegistrationPage from './pages/CandidateRegistrationPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Register />,
+    element: <RegistrationChoicePage />,
+  },
+  {
+    path: "/register/candidate",
+    element: <CandidateRegistrationPage />,
   },
   {
     path: "/home",
