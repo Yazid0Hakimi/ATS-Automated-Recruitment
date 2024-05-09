@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
-import loginImg from '../assets/login-image.png'
+import Img from '../assets/job.png'
+import Navbar from '../components/Navbar'
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -15,66 +16,68 @@ const Login = () => {
     }
 
     return (
-        <div className='container'>
-            <nav className='p-5'>
-                <Link to="/" className='font-black text-xl'>Logo</Link>
-            </nav>
-            <div className='flex items-center' >
-                <div className='flex-1 max-w-xs border border-[#878787] mx-auto p-5 shadow_login rounded-md'>
-                    <h3 className='text-xl font-extralight mb-5'>Welcome !</h3>
-                    <h2 className='text-3xl font-semibold mb-5'>Sign In</h2>
+        <>
+            <Navbar />
+            <div className="container mx-auto flex flex-col items-center md:flex-row">
+                <div className="w-full md:w-1/2 p-4">
                     <form onSubmit={handleSubmit}>
-                        <div className='mb-3'>
-                            <label htmlFor="email"
-                            className="block text-[#1D0805] text-md mb-1"
-                            >Email</label>
-                            <input 
-                            type="email" 
-                            id='email' 
-                            placeholder='Enter your email'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="border border-[#282828] rounded w-full py-3 px-4 text-[#282828] leading-tight outline-none"
+                        <h2 className="text-xl text-[#2D82B7] font-semibold mb-2">Sign IN</h2>
+                        <div className="flex justify-between items-center mb-4">
+                            <div>
+                                <p className="text-base text-black">Welcome back !</p>
+                            </div>
+                            <div>
+                                <p className="text-sm text-[#7D7D7D]">Don't have an account? <Link to='/register' className='text-[#2D82B7] font-semibold' > Register</Link></p>
+                            </div>
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="email" className="block text-sm font-medium text-black">email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                className="w-full mt-1 p-2 rounded-lg outline-none border border-black"
                             />
                         </div>
-                        <div className='mb-3'>
+                        <div className='mb-4'>
                             <label htmlFor="password"
-                            className="block text-[#1D0805] text-md mb-1"
-                            >Password</label>
+                            className="block text-sm font-medium text-black"
+                            >password</label>
                             <div className='relative w-full'>
                                 <input 
                                 type={showPassword ? "text":"password"} 
                                 id="password" 
                                 placeholder="Enter your password" 
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="border border-[#282828] rounded w-full py-3 px-4 text-[#282828] leading-tight outline-none" />
+                                // value={password}
+                                // onChange={(e) => setPassword(e.target.value)}
+                                className="w-full mt-1 p-2 rounded-lg outline-none border border-black pr-10" />
                                 <button 
                                 type='button' 
                                 className="absolute inset-y-0 right-0 px-3 py-2"
                                 onClick={e => setShowPassword(!showPassword)}
                                 >
-                                    {showPassword ? <FaEye />:<FaEyeSlash/>}
+                                    {showPassword ? <FaEyeSlash/>:<FaEye />}
                                 </button>
                             </div>
                         </div>
-                        <p className='flex justify-end text-[#4D4D4D] text-sm font-light'>
-                            <Link to="/forgot-password">forgot Password?</Link>
-                        </p>
                         <button
-                        className="bg-[#000000] mt-4 mb-8 text-white w-full font-bold py-2 px-4 rounded outline-none"
+                        type="submit"
+                        className="bg-[#2D82B7] text-white px-4 py-2 rounded-lg w-full"
                         >
-                            Login
+                        Sign In
                         </button>
                     </form>
-                    <p className='text-center text-[#7D7D7D]'>Don't have an Account ? 
-                    <Link to="/register" className='text-[#000] font-bold'> Register</Link> </p>
                 </div>
-                <div className='hidden md:flex md:flex-1 md:max-w-xl md:mx-auto'>
-                    <img src={loginImg} alt="Login Image" className='text-center' />
+                {/* Image Section */}
+                <div className="hidden md:block md:w-1/2">
+                    <img
+                        src={Img}
+                        alt="Image"
+                        className="w-full h-auto"
+                    />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
