@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 @Data
 @Entity
-@Table(name = "candidate")
+@Table(name = "candidates")
 public class Candidate extends AtsUser{
     private String address;
     private String phone;

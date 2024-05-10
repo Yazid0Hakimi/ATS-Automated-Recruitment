@@ -25,12 +25,12 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void deleteCompany(String id) {
+    public void deleteCompany(int id) {
 
     }
 
     @Override
-    public Company getCompanyById(String id) {
+    public Company getCompanyById(int id) {
         return null;
     }
 

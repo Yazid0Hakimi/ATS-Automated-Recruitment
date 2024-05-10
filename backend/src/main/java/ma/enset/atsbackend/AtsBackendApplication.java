@@ -28,7 +28,7 @@ public class AtsBackendApplication {
             // Create and save 5 job instances
             for (int i = 0; i < 5; i++) {
                 Job job = new Job();
-                job.setId(i + 1); // Id starts from 1
+//                job.setId(i + 1); // Id starts from 1
                 job.setDate(new Date());
                 job.setDescription("Description for job " + (i + 1));
                 job.setImage("Image URL for job " + (i + 1));
@@ -44,7 +44,7 @@ public class AtsBackendApplication {
             // Create and save 5 candidate instances
             for (int i = 0; i < 5; i++) {
                 Candidate candidate = new Candidate();
-                candidate.setId("Candidate-" + (i + 1)); // Generate candidate ID
+//                candidate.setId(i + 1); // Generate candidate ID
                 candidate.setFirstName("Candidate First Name " + (i + 1));
                 candidate.setLastName("Candidate Last Name " + (i + 1));
                 candidate.setPassword("Password for candidate " + (i + 1));
@@ -62,7 +62,7 @@ public class AtsBackendApplication {
             // Create and save 5 company instances
             for (int i = 0; i < 5; i++) {
                 Company company = new Company();
-                company.setId("Company-" + (i + 1)); // Generate company ID
+//                company.setId(i + 1); // Generate company ID
                 company.setName("Company Name " + (i + 1));
                 company.setEmail("company" + (i + 1) + "@example.com");
                 company.setPassword("Password for company " + (i + 1));

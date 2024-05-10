@@ -1,18 +1,15 @@
 package ma.enset.atsbackend.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class AtsUser {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.TABLE) // Use table-based key generation
+    private Integer id;
     private String firstName;
     private String lastName;
     private String password;

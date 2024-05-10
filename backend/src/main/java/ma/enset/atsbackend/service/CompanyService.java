@@ -13,10 +13,10 @@ public interface CompanyService {
     Company updateCompany(Company company);
 
     // Method to delete a company by ID
-    void deleteCompany(String id);
+    void deleteCompany(int id);
 
     // Method to retrieve a company by ID
-    Company getCompanyById(String id);
+    Company getCompanyById(int id);
 
     // Method to retrieve all companies
     List<Company> getAllCompanies();

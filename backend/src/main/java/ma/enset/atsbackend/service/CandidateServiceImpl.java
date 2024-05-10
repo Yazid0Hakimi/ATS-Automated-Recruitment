@@ -4,6 +4,8 @@ import ma.enset.atsbackend.entities.Candidate;
 import ma.enset.atsbackend.repositories.CandidateRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CandidateServiceImpl implements CandidateService {
     CandidateRepository candidateRepositories;
@@ -11,7 +13,10 @@ public class CandidateServiceImpl implements CandidateService {
     public CandidateServiceImpl(CandidateRepository candidateRepositories) {
         this.candidateRepositories = candidateRepositories;
     }
-
+    @Override
+    public List<Candidate> getAllCandidates() {
+        return  candidateRepositories.findAll();
+    }
     @Override
     public Candidate saveCandidate(Candidate candidate) {
         candidateRepositories.save(candidate);
@@ -24,22 +29,22 @@ public class CandidateServiceImpl implements CandidateService {
     }
 
     @Override
-    public void deleteCandidate(String id) {
+    public void deleteCandidate(int id) {
 
     }
 
     @Override
-    public Candidate getCandidateById(String id) {
+    public Candidate getCandidateById(int id) {
         return null;
     }
 
     @Override
-    public void applyToJob(String candidateId, String jobId) {
+    public void applyToJob(String candidateId, int jobId) {
 
     }
 
     @Override
-    public void removeApply(String candidateId, String jobId) {
+    public void removeApply(String candidateId, int jobId) {
 
     }
 

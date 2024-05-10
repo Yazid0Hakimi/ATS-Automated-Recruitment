@@ -1,0 +1,49 @@
+# GET All Jobs
+GET http://localhost:8085/
+###
+
+# GET Job with ID 43
+GET http://localhost:8085/companies/43
+###
+
+# CREATE Job
+POST http://localhost:8085/candidates
+Content-Type: application/json
+
+{
+  "id": 43,
+  "name": "Updated Company Name",
+  "email": "updated@example.com",
+  "password": "UpdatedPassword123",
+  "logo": "Updated Logo URL",
+  "phone": "Updated Phone Number",
+  "description": "Updated Company Description",
+  "city": "Los Angeles",
+  "industry": "Updated Industry",
+  "website": "Updated Website URL"
+}
+
+###
+
+# UPDATE Job with ID 43
+# UPDATE Job with ID 43
+PUT http://localhost:8085/companies/43
+Content-Type: application/json
+
+{
+  "name": "Updated Company Name",
+  "email": "updated@example.com",
+  "password": "UpdatedPassword123",
+  "logo": "Updated Logo URL",
+  "phone": "Updated Phone Number",
+  "description": "Updated Company Description",
+  "city": "Los Angeles",
+  "industry": "Updated Industry",
+  "website": "Updated Website URL"
+}
+
+###
+
+# DELETE Job with ID 43
+DELETE http://localhost:8085/companies/43
+Connection: Keep-Alive

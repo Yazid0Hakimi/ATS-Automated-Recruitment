@@ -18,6 +18,7 @@ public class JobDescriptionController {
     public JobDescriptionController(JobService jobService) {
         this.jobService = jobService;
     }
+
     @GetMapping("/")
     public List<Job> getJobs() {
         return jobService.getAllJobs();
@@ -31,17 +32,17 @@ public class JobDescriptionController {
     }
 
     // Create a new job
-    @PostMapping("/jobs")
+    @PostMapping("/job")
     public Job createJob(@RequestBody Job job) {
-        return  jobService.saveJob(job);
+        return jobService.saveJob(job);
     }
 
     // Update an existing job
-//    @PutMapping("/jobs/{id}")
-//    public Job updateJob(@PathVariable int id, @RequestBody Job job) {
-//
-//        return ResponseEntity.ok(updatedJob);
-//    }
+    @PutMapping("/jobs/{id}")
+    public Job updateJob(@PathVariable int id, @RequestBody Job job) {
+        job.setId(id);
+        return jobService.saveJob(job);
+    }
 
     // Delete a job by ID
     @DeleteMapping("/jobs/{id}")
