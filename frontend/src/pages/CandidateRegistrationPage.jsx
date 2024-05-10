@@ -66,7 +66,7 @@ const CandidateRegistrationPage = () => {
     return (
         <>
             <Navbar />
-            <div className="container mx-auto flex flex-col md:flex-row">
+            <div className="container mx-auto flex flex-col items-center md:flex-row">
                 {/* Form Section */}
                 <div className="w-full md:w-1/2 p-4">
                     <form>

@@ -11,7 +11,7 @@ const CompanyRegistrationPage = () => {
     return (
         <>
             <Navbar />
-            <div className="container mx-auto flex flex-col md:flex-row">
+            <div className="container mx-auto flex flex-col items-center md:flex-row">
                 <div className="w-full md:w-1/2 p-4">
                     <form>
                         <h2 className="text-xl text-[#2D82B7] font-semibold mb-2">Sign UP As Company</h2>
