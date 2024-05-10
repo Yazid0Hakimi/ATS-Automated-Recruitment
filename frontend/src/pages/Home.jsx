@@ -118,13 +118,13 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <div className="container mx-auto mt-8">
+            <div className="container w-[90%] mx-auto mt-8">
                 <div className="flex">
                     <div className="w-1/4">
                         <Filter />
                     </div>
                     <div className="w-3/4 py-4 px-10">
-                        <h1 className="text-3xl font-bold mb-4">Job Posts</h1>
+                        <h1 className="text-3xl text-[#2D82B7] font-bold mb-4">Job Posts</h1>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {jobs.map(job => (
                                 <Link
@@ -144,24 +144,6 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* <Filter />
-                <main className="flex-1 p-8">
-                    <div>
-                        Jobs
-                        <div className="grid grid-cols-3 gap-2 p-5">
-                            {jobs.map(job => (
-                                <JobCard 
-                                    jobTitle={job.jobTitle}
-                                    companyName={job.companyName}
-                                    companyCity={job.companyCity}
-                                    domain={job.domain}
-                                    jobType={job.jobType}
-                                    salary={job.salary}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </main> */}
             </div>
         </div>
     )

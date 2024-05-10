@@ -3,11 +3,11 @@ import React from 'react'
 const Filter = () => {
     return (
         <div className="bg-transparent p-4">
-            <h2 className="text-2xl font-bold mb-4 border-b border-[#000] pb-5">Filter Jobs</h2>
-            <div className="mb-4 border-b border-[#000] pb-5">
+            <h2 className="text-2xl font-bold mb-4 text-[#2D82B7] border-b border-[#2D82B7] pb-5">Filter Jobs</h2>
+            <div className="mb-4 border-b border-[#2D82B7] pb-5">
                 <label className="block text-lg font-medium text-black mb-1">Job Type</label>
                 <ul>
-                    <li className="flex items-center mb-2">
+                    <li className="flex items-center">
                         <input
                             type="checkbox"
                             id="fullTime"
@@ -36,10 +36,10 @@ const Filter = () => {
                     </li>
                 </ul>
             </div>
-            <div className="mb-4 border-b border-[#000] pb-5">
+            <div className="mb-4 border-b border-[#2D82B7] pb-5">
                 <label className="block text-lg font-medium text-black mb-1">Education</label>
                 <ul>
-                    <li className="flex items-center mb-2">
+                    <li className="flex items-center">
                         <input
                             type="checkbox"
                             id="bachelors"
@@ -59,10 +59,10 @@ const Filter = () => {
                     </li>
                 </ul>
             </div>
-            <div className="mb-4 border-b border-[#000] pb-5">
+            <div className="mb-4 border-b border-[#2D82B7] pb-5">
                 <label className="block text-lg font-medium text-black mb-1">Experience</label>
                 <ul>
-                    <li className="flex items-center mb-2">
+                    <li className="flex items-center">
                         <input
                             type="checkbox"
                             id="no_experience"
@@ -85,7 +85,7 @@ const Filter = () => {
             <div className="mb-4">
                 <label className="block text-lg font-medium text-black mb-1">Salary Range</label>
                 <ul>
-                    <li className="flex items-center mb-2">
+                    <li className="flex items-center">
                         <input
                             type="checkbox"
                             id="range_one"
