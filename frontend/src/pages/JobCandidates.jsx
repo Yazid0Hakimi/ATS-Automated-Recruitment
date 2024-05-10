@@ -8,7 +8,7 @@ const JobCandidates = () => {
     return (
         <>
             <Navbar />
-            <div className='container mx-auto mt-8'>
+            <div className='container w-[90%] mx-auto mt-8'>
                 <div className='flex justify-between items-center'>
                     <h1 className='text-3xl font-bold'>Candidates to Job</h1>
                     <div className='relative'>

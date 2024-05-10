@@ -8,7 +8,7 @@ const MyJobs = () => {
     return (
         <>
             <Navbar />
-            <div className='container mx-auto mt-8'>
+            <div className='container w-[90%] mx-auto mt-8'>
                 <div className='flex justify-between items-center'>
                     <h1 className='text-3xl font-bold'>My Jobs</h1>
                     <div className='relative'>
@@ -58,10 +58,10 @@ const MyJobs = () => {
                                     $10000
                                 </td>
                                 <td class="px-6 py-4 flex gap-1">
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><FaEye /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><MdEdit /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><MdDelete /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><FaEye /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdEdit /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdDelete /></button>
                                 </td>
                             </tr>
                             <tr class="bg-white border-b border-black">
@@ -78,10 +78,10 @@ const MyJobs = () => {
                                     $10000
                                 </td>
                                 <td class="px-6 py-4 flex gap-1">
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><FaEye /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><MdEdit /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><MdDelete /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><FaEye /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdEdit /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdDelete /></button>
                                 </td>
                             </tr>
                             <tr class="bg-white border-b border-black">
@@ -98,10 +98,10 @@ const MyJobs = () => {
                                     $10000
                                 </td>
                                 <td class="px-6 py-4 flex gap-1">
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><FaEye /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><MdEdit /></button>
-                                    <button className='bg-[#282828] text-white p-2 rounded text-xl'><MdDelete /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><FaEye /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdEdit /></button>
+                                    <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdDelete /></button>
                                 </td>
                             </tr>
                         </tbody>
