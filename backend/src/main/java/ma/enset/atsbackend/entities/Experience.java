@@ -1,9 +1,6 @@
 package ma.enset.atsbackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,4 +18,7 @@ public class Experience {
     private Date startDate;
     private Date endDate;
     private String city;
+
+    @ManyToOne
+    private Candidate candidate;
 }

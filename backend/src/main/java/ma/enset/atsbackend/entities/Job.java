@@ -1,9 +1,6 @@
 package ma.enset.atsbackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +14,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Job {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private Date date;
     private String description;
@@ -27,4 +25,13 @@ public class Job {
     private String workTime;
     private String city;
     private String recruiterId;
+
+    private String salaire;
+    private String JobDomaine;
+    @ManyToMany
+    private List<Skills> requiredSkills;
+
+    @ManyToOne
+    private Company company;
+
 }

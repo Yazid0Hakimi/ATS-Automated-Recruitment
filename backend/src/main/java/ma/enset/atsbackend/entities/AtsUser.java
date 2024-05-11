@@ -8,7 +8,7 @@ import lombok.Data;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class AtsUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE) // Use table-based key generation
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
     private String firstName;
     private String lastName;
