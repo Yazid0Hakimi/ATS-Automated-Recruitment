@@ -1,120 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import moment from 'moment'
 import Navbar from '../components/Navbar'
 import JobCard from '../components/JobCard'
 import Filter from '../components/Filter'
-import { Link } from 'react-router-dom'
 
 const Home = () => {
-    const jobs = [
-        {
-            id: 1,
-            jobTitle: 'Software Developer',
-            companyName: 'Google',
-            companyCity: 'Bangalore, India',
-            domain: 'Engineering',
-            jobType: 'Full-time',
-            salary: '10000'
-        },
-        {
-            id: 2,
-            jobTitle: 'Data Scientist',
-            companyName: 'Amazon',
-            companyCity: 'New York, USA',
-            domain: 'Data Science',
-            jobType: 'Part-time',
-            salary: '5000'
-        },
-        {
-            id: 3,
-            jobTitle: 'Product Manager',
-            companyName: 'Facebook',
-            companyCity: 'London, UK',
-            domain: 'Management',
-            jobType: 'Full-time',
-            salary: '8000'
-        },
-        {
-            id: 4,
-            jobTitle: 'Software Developer',
-            companyName: 'Google',
-            companyCity: 'Bangalore, India',
-            domain: 'Engineering',
-            jobType: 'Full-time',
-            salary: '10000'
-        },
-        {
-            id: 5,
-            jobTitle: 'Data Scientist',
-            companyName: 'Amazon',
-            companyCity: 'New York, USA',
-            domain: 'Data Science',
-            jobType: 'Part-time',
-            salary: '5000'
-        },
-        {
-            id: 6,
-            jobTitle: 'Product Manager',
-            companyName: 'Facebook',
-            companyCity: 'London, UK',
-            domain: 'Management',
-            jobType: 'Full-time',
-            salary: '8000'
-        },
-        {
-            id: 7,
-            jobTitle: 'Software Developer',
-            companyName: 'Google',
-            companyCity: 'Bangalore, India',
-            domain: 'Engineering',
-            jobType: 'Full-time',
-            salary: '10000'
-        },
-        {
-            id: 8,
-            jobTitle: 'Data Scientist',
-            companyName: 'Amazon',
-            companyCity: 'New York, USA',
-            domain: 'Data Science',
-            jobType: 'Part-time',
-            salary: '5000'
-        },
-        {
-            id: 9,
-            jobTitle: 'Product Manager',
-            companyName: 'Facebook',
-            companyCity: 'London, UK',
-            domain: 'Management',
-            jobType: 'Full-time',
-            salary: '8000'
-        },
-        {
-            id: 10,
-            jobTitle: 'Software Developer',
-            companyName: 'Google',
-            companyCity: 'Bangalore, India',
-            domain: 'Engineering',
-            jobType: 'Full-time',
-            salary: '10000'
-        },
-        {
-            id: 11,
-            jobTitle: 'Data Scientist',
-            companyName: 'Amazon',
-            companyCity: 'New York, USA',
-            domain: 'Data Science',
-            jobType: 'Part-time',
-            salary: '5000'
-        },
-        {
-            id: 12,
-            jobTitle: 'Product Manager',
-            companyName: 'Facebook',
-            companyCity: 'London, UK',
-            domain: 'Management',
-            jobType: 'Full-time',
-            salary: '8000'
-        },
-    ]
+    const [jobs, setJobs] = useState([])
+
+    // Fetch jobs from the backend using axios
+    useEffect(() => {
+        axios.get('http://localhost:8085/')
+            .then(res => {
+                console.log(res.data)
+                setJobs(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
+
+    const getTimeAgo = (date) => {
+        return moment(date).fromNow();
+    }
+
     return (
         <div>
             <Navbar />
@@ -132,12 +42,13 @@ const Home = () => {
                                     key={job.id}
                                 >
                                     <JobCard
+                                        time={getTimeAgo(job.date)}
                                         jobTitle={job.jobTitle}
-                                        companyName={job.companyName}
-                                        companyCity={job.companyCity}
-                                        domain={job.domain}
-                                        jobType={job.jobType}
-                                        salary={job.salary}
+                                        companyName={job.enterpriseName}
+                                        companyCity={job.city}
+                                        domain={job.jobDomaine}
+                                        jobType={job.workTime}
+                                        salary={job.salaire}
                                     />
                                 </Link>
                             ))}
