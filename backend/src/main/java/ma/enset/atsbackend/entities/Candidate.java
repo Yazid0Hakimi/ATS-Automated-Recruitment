@@ -1,5 +1,6 @@
 package ma.enset.atsbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "candidates")
+
 public class Candidate extends AtsUser {
     private String address;
     private String phone;

@@ -45,4 +45,10 @@ public class JobServiceImpl implements JobService {
     public void deleteJob(int id) {
         jobRepositories.deleteById(id);
     }
+
+    @Override
+    public Job getJobsWithCompany(int id) {
+        return null;
+    }
+
 }

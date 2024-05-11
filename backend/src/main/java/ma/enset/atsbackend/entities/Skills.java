@@ -1,5 +1,7 @@
 package ma.enset.atsbackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
 public class Skills {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +21,8 @@ public class Skills {
     private String name;
 
     @ManyToMany
+    @JsonIgnore
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
     private List<Candidate> candidate;
 }

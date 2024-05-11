@@ -1,5 +1,7 @@
 # GET Job with ID 43
-GET http://localhost:8085/candidates/43
+GET http://localhost:8085/candidates/1
+Content-Type: application/json
+
 ###
 
 # CREATE Job

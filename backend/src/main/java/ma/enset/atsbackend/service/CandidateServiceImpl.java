@@ -35,7 +35,7 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Override
     public Candidate getCandidateById(int id) {
-        return null;
+        return candidateRepositories.getReferenceById(id);
     }
 
     @Override

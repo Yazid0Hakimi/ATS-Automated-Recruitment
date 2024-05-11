@@ -21,4 +21,6 @@ public interface JobService {
     // Method to delete a job by ID
     void deleteJob(int id);
 
+    Job getJobsWithCompany( int id);
+
 }

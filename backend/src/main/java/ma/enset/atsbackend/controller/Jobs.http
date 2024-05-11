@@ -3,11 +3,11 @@ GET http://localhost:8085/
 ###
 
 # GET Job with ID 43
-GET http://localhost:8085/jobs/43
+GET http://localhost:8085/jobs/6
 ###
 
 # CREATE Job
-POST http://localhost:8085/jobs
+POST http://localhost:8085/job
 Content-Type: application/json
 
 {
@@ -19,8 +19,13 @@ Content-Type: application/json
   "enterpriseName": "Updated enterprise name",
   "workTime": "Part-time",
   "city": "Los Angeles",
-  "recruiterId": "Recruiter456"
+  "recruiterId": "Recruiter456",
+  "salaire": null,
+  "jobDomaine": null,
+  "requiredSkills": [],
+  "company": null
 }
+
 ###
 
 # UPDATE Job with ID 43
