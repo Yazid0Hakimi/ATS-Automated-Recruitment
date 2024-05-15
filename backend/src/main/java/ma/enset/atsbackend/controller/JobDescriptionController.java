@@ -19,7 +19,7 @@ public class JobDescriptionController {
         this.jobService = jobService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/jobs")
     public List<Job> getJobs() {
         return jobService.getAllJobs();
     }

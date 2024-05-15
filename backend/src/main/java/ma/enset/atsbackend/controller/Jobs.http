@@ -1,5 +1,5 @@
 # GET All Jobs
-GET http://localhost:8085/
+GET http://localhost:8085/jobs
 ###
 
 # GET Job with ID 43
