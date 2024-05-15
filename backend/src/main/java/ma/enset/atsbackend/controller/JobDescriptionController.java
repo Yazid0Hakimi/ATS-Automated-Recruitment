@@ -28,11 +28,10 @@ public class JobDescriptionController {
     @GetMapping("/jobs/{id}")
     public Job getJobById(@PathVariable int id) {
         return jobService.getJobById(id);
-
     }
 
     // Create a new job
-    @PostMapping("/job")
+    @PostMapping("/jobs")
     public Job createJob(@RequestBody Job job) {
         return jobService.saveJob(job);
     }
