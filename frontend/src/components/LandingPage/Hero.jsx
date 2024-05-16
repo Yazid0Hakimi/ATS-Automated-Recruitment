@@ -4,7 +4,7 @@ import HeroImg from '../../assets/hero.jpg'
 
 const Hero = () => {
     return (
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full h-screen overflow-hidden"> 
             <div className="absolute inset-0 bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${HeroImg})` }}></div>
             <div className="absolute inset-0 bg-[#2D82B7] opacity-50"></div>
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">

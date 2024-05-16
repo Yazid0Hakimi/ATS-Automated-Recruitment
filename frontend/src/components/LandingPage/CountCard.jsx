@@ -2,7 +2,7 @@ import React from 'react'
 
 const CountCard = ({ icon: Icon, title, count }) => {
     return (
-        <div className="flex items-center justify-center rounded-lg p-4">
+        <div className="flex items-center justify-center rounded-lg p-4"> 
             <div className="mr-4 p-3 text-[#2D82B7] rounded-full">
                 <Icon className="text-6xl" />
             </div>

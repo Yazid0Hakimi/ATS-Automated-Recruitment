@@ -40,7 +40,7 @@ const LandingPage = () => {
         <>
         <Navbar />
         <Hero />
-        <div className='w-[80%] mx-auto py-20'>
+        <div className='w-[80%] mx-auto py-20'> 
             <div className='grid grid-cols-3 gap-4'>
                 <CountCard icon={TbUsers} title='Candidate' count={100} />
                 <CountCard icon={HiOutlineBuildingLibrary} title='Company' count={100} />
