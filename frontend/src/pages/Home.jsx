@@ -11,7 +11,7 @@ const Home = () => {
 
     // Fetch jobs from the backend using axios
     useEffect(() => {
-        axios.get('http://localhost:8085/')
+        axios.get('http://localhost:8085/jobs')
             .then(res => {
                 console.log(res.data)
                 setJobs(res.data)
