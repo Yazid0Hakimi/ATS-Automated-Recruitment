@@ -17,11 +17,12 @@ import CandidateRegistrationPage from './pages/CandidateRegistrationPage.jsx';
 import CompanyRegistrationPage from './pages/CompanyRegistrationPage.jsx';
 import CandidateProfilePage from './pages/CandidateProfilePage.jsx';
 import CreateJobPage from './pages/CreateJobPage.jsx';
+import LandingPage from './pages/LandingPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <LandingPage />,
   },
   {
     path: "/login",
