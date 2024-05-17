@@ -1,20 +1,19 @@
-package ma.enset.atsbackend.entities;
+package ma.enset.atsbackend.dtos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.enset.atsbackend.entities.Company;
+import ma.enset.atsbackend.entities.JobApplication;
+import ma.enset.atsbackend.entities.Skills;
 
 import java.util.Date;
 import java.util.List;
 
-@Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-
-public class Job {
+public class JobDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -29,14 +28,8 @@ public class Job {
     private String salaire;
     private String jobDomaine;
 
-    @ManyToMany (fetch = FetchType.EAGER)
     private List<Skills> requiredSkills;
 
-    @ManyToOne
     private Company company;
-
-    @OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("jobApplications")
-    private List<JobApplication> jobApplications;
 
 }
