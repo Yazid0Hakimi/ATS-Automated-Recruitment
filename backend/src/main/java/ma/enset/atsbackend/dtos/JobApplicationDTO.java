@@ -19,21 +19,17 @@ public class JobApplicationDTO {
     private Date jobDate;
     private String enterpriseName;
     private String jobDomaine;
-    private Integer companyId;
     private String jobTitle;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
     private Date applicationDate;
-    private String companyName;
 
     public JobApplicationDTO(Integer jobId, Date jobDate, String enterpriseName, String jobDomaine, Integer companyId, String jobTitle, Date applicationDate, String companyName) {
         this.jobId = jobId;
         this.jobDate = jobDate;
         this.enterpriseName = enterpriseName;
         this.jobDomaine = jobDomaine;
-        this.companyId = companyId;
         this.jobTitle = jobTitle;
         this.applicationDate = applicationDate;
-        this.companyName = companyName;
     }
 
 

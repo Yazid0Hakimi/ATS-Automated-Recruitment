@@ -2,6 +2,7 @@ package ma.enset.atsbackend.service;
 
 import ma.enset.atsbackend.dtos.CandidateApplicationDTO;
 import ma.enset.atsbackend.dtos.JobApplicationDTO;
+import ma.enset.atsbackend.entities.JobApplication;
 import ma.enset.atsbackend.repositories.CandidateRepository;
 import ma.enset.atsbackend.repositories.JobApplicationRepository;
 import ma.enset.atsbackend.repositories.JobRepository;
@@ -23,6 +24,7 @@ public class JobApplicationServiceImpl implements JobApplicationService {
         this.jobRepository = jobRepository;
         this.candidateRepository = candidateRepository;
     }
+
     @Override
     public List<CandidateApplicationDTO> getCandidatesByJobId(Long jobId) {
         List<Object[]> results = jobApplicationRepository.findCandidatesByJobId(jobId);
@@ -39,10 +41,16 @@ public class JobApplicationServiceImpl implements JobApplicationService {
                 (Date) result[5]
         );
     }
+
     @Override
     public List<JobApplicationDTO> getJobsByCandidateId(Long candidateId) {
         List<Object[]> results = jobApplicationRepository.findJobByCandidateId(candidateId);
         return results.stream().map(this::mapToJobApplicationDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<JobApplication> findAll() {
+        return jobApplicationRepository.findAll();
     }
 
     private JobApplicationDTO mapToJobApplicationDTO(Object[] result) {

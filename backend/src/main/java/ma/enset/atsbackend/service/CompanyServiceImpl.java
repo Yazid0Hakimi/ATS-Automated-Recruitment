@@ -31,7 +31,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company getCompanyById(int id) {
-        return null;
+        return companyRepositories.getCompanyById(id);
     }
 
     @Override

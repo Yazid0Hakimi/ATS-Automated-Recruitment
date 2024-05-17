@@ -27,4 +27,6 @@ public class Company {
     private String website;
 
 
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    private List<Job> jobs;
 }

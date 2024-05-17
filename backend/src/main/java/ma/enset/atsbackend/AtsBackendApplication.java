@@ -108,9 +108,6 @@ public class AtsBackendApplication {
                 education.setStartDate(new Date());
                 education.setEndDate(new Date());
 
-                // Assuming you have candidate instances created already
-                // Fetch a candidate from the database to set as the owner of the education
-                // For demonstration purposes, let's assume we fetch a candidate with ID = 1
                 Candidate candidate = candidateService.getCandidateById(1); // Adjust this according to your implementation
                 education.setCandidate(candidate);
 
@@ -181,7 +178,7 @@ public class AtsBackendApplication {
             candidate.setProfilePic("ProfilePic");
             candidate.setBio("Bio");
 
-// Assuming you have associations to set here
+    // Assuming you have associations to set here
             List<Education> educationList = educationService.getAllEducations();
             if (!educationList.isEmpty()) {
                 candidate.setEducationList(Collections.singletonList(educationList.get(0)));
@@ -207,10 +204,11 @@ public class AtsBackendApplication {
         };
     }
 
-    //    @Bean
+        @Bean
     public CommandLineRunner commandLineRunner2(JobApplicationRepository jobApplicationRepository,
                                                 CandidateRepository candidateRepository,
                                                 JobRepository jobRepository,
+                                                CompanyService companyService,
                                                 JobApplicationService jobApplicationService) {
         return args -> {
             // Create candidates
@@ -230,10 +228,13 @@ public class AtsBackendApplication {
             job1.setImage("job1.jpg");
             job1.setJobTitle("Job 1 Title");
             job1.setEnterpriseName("Enterprise 1");
+            job1.setCompany(companyService.getCompanyById(1));
+
             job1.setWorkTime("Full-time");
             job1.setCity("City 1");
             job1.setRecruiterId("Recruiter 1");
             job1.setSalaire("50000");
+
             job1.setJobDomaine("IT");
             jobRepository.save(job1);
 
@@ -245,6 +246,8 @@ public class AtsBackendApplication {
             job2.setEnterpriseName("Enterprise 2");
             job2.setWorkTime("Part-time");
             job2.setCity("City 2");
+            job2.setCompany(companyService.getCompanyById(1));
+
             job2.setRecruiterId("Recruiter 2");
             job2.setSalaire("60000");
             job2.setJobDomaine("Finance");
@@ -294,8 +297,8 @@ public class AtsBackendApplication {
 
     @Bean
     CommandLineRunner initData(JobApplicationRepository jobApplicationRepository,
-                               CandidateRepository candidateRepository,
-                               JobRepository jobRepository,
+                               CandidateService candidateService,
+                               JobService jobService,
                                CompanyService companyService,
                                JobApplicationService jobApplicationService) {
         return args -> {
@@ -318,35 +321,35 @@ public class AtsBackendApplication {
             candidate3.setPhone("456123789");
             candidate3.setGender("Female");
 
-            candidateRepository.save(candidate1);
-            candidateRepository.save(candidate2);
-            candidateRepository.save(candidate3);
+            candidate1 = candidateService.saveCandidate(candidate1);
+            candidate2 = candidateService.saveCandidate(candidate2);
+            candidate3 = candidateService.saveCandidate(candidate3);
 
             // Create Jobs
             Job job1 = new Job();
             job1.setDate(new Date());
             job1.setEnterpriseName("Enterprise1");
             job1.setJobDomaine("IT");
-            job1.setCompany(companyService.getCompanyById(2));
+            job1.setCompany(companyService.getCompanyById(1)); // Assuming you have a company with ID 1
             job1.setJobTitle("Software Engineer");
 
             Job job2 = new Job();
             job2.setDate(new Date());
             job2.setEnterpriseName("Enterprise2");
             job2.setJobDomaine("Finance");
-            job2.setCompany(companyService.getCompanyById(1));
+            job2.setCompany(companyService.getCompanyById(2)); // Assuming you have a company with ID 2
             job2.setJobTitle("Financial Analyst");
 
             Job job3 = new Job();
             job3.setDate(new Date());
             job3.setEnterpriseName("Enterprise3");
             job3.setJobDomaine("Marketing");
-            job3.setCompany(companyService.getCompanyById(3));
+            job3.setCompany(companyService.getCompanyById(1)); // Assuming you have a company with ID 3
             job3.setJobTitle("Marketing Manager");
 
-            jobRepository.save(job1);
-            jobRepository.save(job2);
-            jobRepository.save(job3);
+            job1 = jobService.saveJob(job1);
+            job2 = jobService.saveJob(job2);
+            job3 = jobService.saveJob(job3);
 
             // Create Job Applications
             JobApplication jobApplication1 = new JobApplication();
@@ -367,8 +370,27 @@ public class AtsBackendApplication {
             jobApplicationRepository.save(jobApplication1);
             jobApplicationRepository.save(jobApplication2);
             jobApplicationRepository.save(jobApplication3);
+
+            // Assign job applications to candidates and jobs
+            List<JobApplication> jobApplications = jobApplicationService.findAll();
+            candidate1.setJobApplications(jobApplications);
+            candidate2.setJobApplications(jobApplications);
+            candidate3.setJobApplications(jobApplications);
+
+            job1.setJobApplications(jobApplications);
+            job2.setJobApplications(jobApplications);
+            job3.setJobApplications(jobApplications);
+
+            candidateService.saveCandidate(candidate1);
+            candidateService.saveCandidate(candidate2);
+            candidateService.saveCandidate(candidate3);
+
+            jobService.saveJob(job1);
+            jobService.saveJob(job2);
+            jobService.saveJob(job3);
         };
     }
+
 }
 
 
