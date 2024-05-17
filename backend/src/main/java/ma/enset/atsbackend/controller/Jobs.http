@@ -3,7 +3,7 @@ GET http://localhost:8085/jobs
 ###
 
 # GET Job with ID 43
-GET http://localhost:8085/jobs/6
+GET http://localhost:8085/jobs/1
 ###
 
 # CREATE Job

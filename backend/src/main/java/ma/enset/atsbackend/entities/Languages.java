@@ -19,9 +19,8 @@ public class Languages {
     private int id;
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JsonIgnore
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
     private List<Candidate> candidate;
 }

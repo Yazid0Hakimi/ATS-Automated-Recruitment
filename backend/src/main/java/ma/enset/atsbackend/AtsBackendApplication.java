@@ -1,6 +1,9 @@
 package ma.enset.atsbackend;
 
 import ma.enset.atsbackend.entities.*;
+import ma.enset.atsbackend.repositories.CandidateRepository;
+import ma.enset.atsbackend.repositories.JobApplicationRepository;
+import ma.enset.atsbackend.repositories.JobRepository;
 import ma.enset.atsbackend.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -203,4 +206,169 @@ public class AtsBackendApplication {
 
         };
     }
+
+    //    @Bean
+    public CommandLineRunner commandLineRunner2(JobApplicationRepository jobApplicationRepository,
+                                                CandidateRepository candidateRepository,
+                                                JobRepository jobRepository,
+                                                JobApplicationService jobApplicationService) {
+        return args -> {
+            // Create candidates
+            Candidate candidate1 = new Candidate();
+            candidate1.setAddress("123 Street");
+            candidate1.setPhone("123456789");
+            candidate1.setGender("Male");
+            candidate1.setCity("City1");
+            candidate1.setProfilePic("profilePic.jpg");
+            candidate1.setBio("Bio of candidate 1");
+            candidateRepository.save(candidate1);
+
+            // Create jobs
+            Job job1 = new Job();
+            job1.setDate(new Date());
+            job1.setDescription("Job 1 Description");
+            job1.setImage("job1.jpg");
+            job1.setJobTitle("Job 1 Title");
+            job1.setEnterpriseName("Enterprise 1");
+            job1.setWorkTime("Full-time");
+            job1.setCity("City 1");
+            job1.setRecruiterId("Recruiter 1");
+            job1.setSalaire("50000");
+            job1.setJobDomaine("IT");
+            jobRepository.save(job1);
+
+            Job job2 = new Job();
+            job2.setDate(new Date());
+            job2.setDescription("Job 2 Description");
+            job2.setImage("job2.jpg");
+            job2.setJobTitle("Job 2 Title");
+            job2.setEnterpriseName("Enterprise 2");
+            job2.setWorkTime("Part-time");
+            job2.setCity("City 2");
+            job2.setRecruiterId("Recruiter 2");
+            job2.setSalaire("60000");
+            job2.setJobDomaine("Finance");
+            jobRepository.save(job2);
+
+            // Create job applications
+            JobApplication jobApplication1 = new JobApplication();
+            jobApplication1.setCandidate(candidate1);
+            jobApplication1.setJob(job1);
+            jobApplication1.setApplicationDate(new Date());
+            jobApplicationRepository.save(jobApplication1);
+
+            JobApplication jobApplication2 = new JobApplication();
+            jobApplication2.setCandidate(candidate1);
+            jobApplication2.setJob(job2);
+            jobApplication2.setApplicationDate(new Date());
+            jobApplicationRepository.save(jobApplication2);
+
+//            List<Job> jobs = jobApplicationRepository.findJobsByCandidateId(Long.valueOf(candidate1.getId()));
+//            List<Candidate> candidates = jobApplicationRepository.findCandidatesByJobId((long) job1.getId());
+
+
+//            List<Long> Jobids = jobApplicationRepository.findJobIdsByCandidateId(113L);
+//            List<Long> candidateIds = jobApplicationRepository.findCandidateIdsByJobId(33L);
+
+//            List<Candidate> Jobids = jobApplicationService.findCandidateByJobId(113L);
+//            List<Job> candidateIds = jobApplicationService.getJobsByCandidateId(113L);
+////
+//            System.out.println("################jobs and candidates#################");
+////            jobs.forEach(System.out::println);
+//            Jobids.forEach(System.out::println);
+//            candidateIds.forEach(System.out::println);
+
+
+//            List<Candidate> jobIds = jobApplicationService.findCandidateByJobId(113L);
+//            List<Job> candidateIds = jobApplicationService.getJobsByCandidateId(113L);
+
+//            System.out.println("################jobs and candidates#################");
+//// Print the first element of jobIds list
+//            System.out.println(jobIds.get(0));
+//// Print the first element of candidateIds list
+//            System.out.println(candidateIds.get(0));
+
+
+        };
+    }
+
+    @Bean
+    CommandLineRunner initData(JobApplicationRepository jobApplicationRepository,
+                               CandidateRepository candidateRepository,
+                               JobRepository jobRepository,
+                               CompanyService companyService,
+                               JobApplicationService jobApplicationService) {
+        return args -> {
+            // Create Candidates
+            Candidate candidate1 = new Candidate();
+            candidate1.setFirstName("John");
+            candidate1.setLastName("Doe");
+            candidate1.setPhone("123456789");
+            candidate1.setGender("Male");
+
+            Candidate candidate2 = new Candidate();
+            candidate2.setFirstName("Jane");
+            candidate2.setLastName("Smith");
+            candidate2.setPhone("987654321");
+            candidate2.setGender("Female");
+
+            Candidate candidate3 = new Candidate();
+            candidate3.setFirstName("Alice");
+            candidate3.setLastName("Johnson");
+            candidate3.setPhone("456123789");
+            candidate3.setGender("Female");
+
+            candidateRepository.save(candidate1);
+            candidateRepository.save(candidate2);
+            candidateRepository.save(candidate3);
+
+            // Create Jobs
+            Job job1 = new Job();
+            job1.setDate(new Date());
+            job1.setEnterpriseName("Enterprise1");
+            job1.setJobDomaine("IT");
+            job1.setCompany(companyService.getCompanyById(2));
+            job1.setJobTitle("Software Engineer");
+
+            Job job2 = new Job();
+            job2.setDate(new Date());
+            job2.setEnterpriseName("Enterprise2");
+            job2.setJobDomaine("Finance");
+            job2.setCompany(companyService.getCompanyById(1));
+            job2.setJobTitle("Financial Analyst");
+
+            Job job3 = new Job();
+            job3.setDate(new Date());
+            job3.setEnterpriseName("Enterprise3");
+            job3.setJobDomaine("Marketing");
+            job3.setCompany(companyService.getCompanyById(3));
+            job3.setJobTitle("Marketing Manager");
+
+            jobRepository.save(job1);
+            jobRepository.save(job2);
+            jobRepository.save(job3);
+
+            // Create Job Applications
+            JobApplication jobApplication1 = new JobApplication();
+            jobApplication1.setCandidate(candidate1);
+            jobApplication1.setJob(job1);
+            jobApplication1.setApplicationDate(new Date());
+
+            JobApplication jobApplication2 = new JobApplication();
+            jobApplication2.setCandidate(candidate2);
+            jobApplication2.setJob(job2);
+            jobApplication2.setApplicationDate(new Date());
+
+            JobApplication jobApplication3 = new JobApplication();
+            jobApplication3.setCandidate(candidate3);
+            jobApplication3.setJob(job3);
+            jobApplication3.setApplicationDate(new Date());
+
+            jobApplicationRepository.save(jobApplication1);
+            jobApplicationRepository.save(jobApplication2);
+            jobApplicationRepository.save(jobApplication3);
+        };
+    }
 }
+
+
