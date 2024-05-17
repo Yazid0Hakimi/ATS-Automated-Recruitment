@@ -30,7 +30,7 @@ const CreateJobPage = () => {
                     </div>
                     <div className="mb-4">
                         <label htmlFor="jobType" className="block text-sm font-medium text-black">Job Type</label>
-                        <select id="jobType">
+                        <select id="jobType" className="w-full mt-1 p-2 rounded-lg outline-none border border-black">
                             <option value="full-time">Full Time</option>
                             <option value="part-time">Part Time</option>
                             <option value="internship">Internship</option>
