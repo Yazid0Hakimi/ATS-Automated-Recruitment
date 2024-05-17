@@ -1,10 +1,7 @@
 package ma.enset.atsbackend.controller;
 
-import lombok.AllArgsConstructor;
 import ma.enset.atsbackend.entities.Job;
 import ma.enset.atsbackend.service.JobService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,10 +9,10 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 
-public class JobDescriptionController {
+public class JobController {
     JobService jobService;
 
-    public JobDescriptionController(JobService jobService) {
+    public JobController(JobService jobService) {
         this.jobService = jobService;
     }
 
@@ -47,6 +44,17 @@ public class JobDescriptionController {
     @DeleteMapping("/jobs/{id}")
     public void deleteJob(@PathVariable int id) {
         jobService.deleteJob(id);
-
     }
+
+    @PostMapping("/jobsCount")
+    public double count() {
+        return jobService.countJobs();
+    }
+
+    @GetMapping("/Lastjobs")
+    public List<Job> getLastJobs() {
+        return jobService.LastJobs();
+    }
+
+
 }

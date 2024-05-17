@@ -47,3 +47,7 @@ Content-Type: application/json
 # DELETE Job with ID 43
 DELETE http://localhost:8085/companies/43
 Connection: Keep-Alive
+
+###
+POST http://localhost:8085/companiesCount
+Content-Type: application/json

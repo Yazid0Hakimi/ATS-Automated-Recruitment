@@ -4,6 +4,7 @@ import ma.enset.atsbackend.entities.Company;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 public interface CompanyService {
 
     // Method to register a new company
@@ -21,4 +22,5 @@ public interface CompanyService {
     // Method to retrieve all companies
     List<Company> getAllCompanies();
 
+    Long countCompanies();
 }

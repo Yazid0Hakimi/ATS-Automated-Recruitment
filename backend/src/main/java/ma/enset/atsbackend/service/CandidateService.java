@@ -27,4 +27,8 @@ public interface CandidateService {
     // Method to remove job application
     void removeApply(String candidateId, int jobId);
 
+
+    double countCandidateswithcount();
+
+//    double countCandidateswithfunction();
 }

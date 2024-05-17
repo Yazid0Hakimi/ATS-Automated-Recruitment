@@ -23,4 +23,7 @@ public interface JobService {
 
     Job getJobsWithCompany( int id);
 
+    Long countJobs();
+
+    List<Job> LastJobs();
 }

@@ -94,6 +94,7 @@ public class AtsBackendApplication {
                 job.setEnterpriseName("Enterprise Name " + (i + 1));
                 job.setWorkTime("Work Time for job " + (i + 1));
                 job.setCity("City for job " + (i + 1));
+                job.setCompany(companyService.getCompanyById(1)); // Assuming you have a company with ID 1
                 job.setRecruiterId("Recruiter ID for job " + (i + 1));
                 job.setSalaire("Salary for job " + (i + 1)); // Additional field
                 job.setJobDomaine("Job Domain for job " + (i + 1)); // Additional field

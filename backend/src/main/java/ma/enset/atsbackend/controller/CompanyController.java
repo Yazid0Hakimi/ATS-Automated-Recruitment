@@ -45,4 +45,9 @@ public class CompanyController {
     public void deleteCompany(@PathVariable int id) {
         companyService.deleteCompany(id);
     }
+
+    @PostMapping("/companiesCount")
+    public Long count() {
+        return companyService.countCompanies();
+    }
 }

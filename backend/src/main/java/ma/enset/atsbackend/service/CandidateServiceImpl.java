@@ -13,10 +13,12 @@ public class CandidateServiceImpl implements CandidateService {
     public CandidateServiceImpl(CandidateRepository candidateRepositories) {
         this.candidateRepositories = candidateRepositories;
     }
+
     @Override
     public List<Candidate> getAllCandidates() {
-        return  candidateRepositories.findAll();
+        return candidateRepositories.findAll();
     }
+
     @Override
     public Candidate saveCandidate(Candidate candidate) {
         candidateRepositories.save(candidate);
@@ -47,5 +49,15 @@ public class CandidateServiceImpl implements CandidateService {
     public void removeApply(String candidateId, int jobId) {
 
     }
+
+    @Override
+    public double countCandidateswithcount() {
+        return candidateRepositories.countCandidates();
+    }
+
+//    @Override
+//    public double countCandidateswithfunction() {
+//        return candidateRepositories.countCandidateById();
+//    }
 
 }

@@ -51,4 +51,14 @@ public class JobServiceImpl implements JobService {
         return null;
     }
 
+    @Override
+    public Long countJobs() {
+        return jobRepositories.countJobs();
+    }
+
+    @Override
+    public List<Job> LastJobs() {
+        return jobRepositories.findTop6ByOrderByDateDesc();
+    }
+
 }

@@ -38,4 +38,9 @@ public class CompanyServiceImpl implements CompanyService {
     public List<Company> getAllCompanies() {
         return null;
     }
+
+    @Override
+    public Long countCompanies() {
+        return companyRepositories.countCompanies();
+    }
 }
