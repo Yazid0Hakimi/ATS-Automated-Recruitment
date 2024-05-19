@@ -36,7 +36,7 @@ public class Job {
     private Company company;
 
     @OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("jobApplications")
+//    @JsonIgnoreProperties("jobApplications")
     private List<JobApplication> jobApplications;
 
 }

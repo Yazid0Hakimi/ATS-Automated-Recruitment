@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "candidates")
-@JsonIgnoreProperties({"educationList", "experienceList", "languagesList", "skillsList", "jobApplications"})
+//@JsonIgnoreProperties({"educationList", "experienceList", "languagesList", "skillsList", "jobApplications"})
 public class Candidate extends AtsUser {
     private String address;
     private String phone;
