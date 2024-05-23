@@ -13,7 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@JsonIgnoreProperties("candidate")
+@JsonIgnoreProperties({"candidate"})
+
 public class Languages {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

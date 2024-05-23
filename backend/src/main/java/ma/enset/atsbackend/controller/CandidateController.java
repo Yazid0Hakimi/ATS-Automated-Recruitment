@@ -47,10 +47,6 @@ public class CandidateController {
         candidateService.deleteCandidate(id);
     }
 
-//    @PostMapping("/countCandidateswithfunction")
-//    public double countss() {
-//        return candidateService.countCandidateswithfunction();
-//    }
 
     @PostMapping("/candidatesCount")
     public double count() {

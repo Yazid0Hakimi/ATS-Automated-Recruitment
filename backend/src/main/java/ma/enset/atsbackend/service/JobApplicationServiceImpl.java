@@ -2,6 +2,7 @@ package ma.enset.atsbackend.service;
 
 import ma.enset.atsbackend.dtos.CandidateApplicationDTO;
 import ma.enset.atsbackend.dtos.JobApplicationDTO;
+import ma.enset.atsbackend.entities.Company;
 import ma.enset.atsbackend.entities.JobApplication;
 import ma.enset.atsbackend.repositories.CandidateRepository;
 import ma.enset.atsbackend.repositories.JobApplicationRepository;
@@ -54,16 +55,25 @@ public class JobApplicationServiceImpl implements JobApplicationService {
     }
 
     private JobApplicationDTO mapToJobApplicationDTO(Object[] result) {
+        Company company = new Company();
+        company.setId((Integer) result[6]); // Assuming company id is at index 6
+        company.setCity((String) result[7]);
+        company.setDescription((String) result[8]);
+        company.setEmail((String) result[9]);
+        company.setIndustry((String) result[10]);
+        company.setLogo((String) result[11]);
+        company.setName((String) result[12]);
+        company.setPassword((String) result[13]);
+        company.setPhone((String) result[14]);
+        company.setWebsite((String) result[15]);
+
         return new JobApplicationDTO(
-                (Integer) result[0],
-                (Date) result[1],
-                (String) result[2],
-                (String) result[3],
-                (Integer) result[4],
-                (String) result[5],
-                (Date) result[6],
-                (String) result[7] // This can be null if there's no matching company
+                (Integer) result[0],             // job id
+                (Date) result[1],             // job date
+                (String) result[2],           // job domain
+                (String) result[3],           // job title
+                (Date) result[4],             // application date
+                company
         );
     }
-
 }

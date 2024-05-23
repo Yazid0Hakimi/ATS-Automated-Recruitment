@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@JsonIgnoreProperties({"candidate"})
 public class Experience {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,7 +24,6 @@ public class Experience {
 
     @ManyToOne
     @JsonIgnore
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 
     private Candidate candidate;
 }

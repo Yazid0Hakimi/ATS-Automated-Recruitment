@@ -13,7 +13,6 @@ public class AppMapper {
         jobDTO.setDescription(job.getDescription());
         jobDTO.setImage(job.getImage());
         jobDTO.setJobTitle(job.getJobTitle());
-        jobDTO.setEnterpriseName(job.getEnterpriseName());
         jobDTO.setWorkTime(job.getWorkTime());
         jobDTO.setCity(job.getCity());
         jobDTO.setRecruiterId(job.getRecruiterId());

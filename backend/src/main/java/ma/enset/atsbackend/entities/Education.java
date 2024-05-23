@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@JsonIgnoreProperties({"candidate"})
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -27,8 +27,6 @@ public class Education {
 
     @ManyToOne
     @JsonIgnore
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
     private Candidate candidate;
 
 }

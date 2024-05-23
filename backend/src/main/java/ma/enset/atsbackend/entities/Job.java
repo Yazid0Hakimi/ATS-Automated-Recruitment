@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@JsonIgnoreProperties({"jobApplications"})
 public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,21 +22,21 @@ public class Job {
     private String description;
     private String image;
     private String jobTitle;
-    private String enterpriseName;
+//    private String enterpriseName;
     private String workTime;
     private String city;
     private String recruiterId;
     private String salaire;
     private String jobDomaine;
 
-    @ManyToMany (fetch = FetchType.EAGER)
+    @ManyToMany (fetch = FetchType.LAZY)
     private List<Skills> requiredSkills;
 
     @ManyToOne
     private Company company;
 
-    @OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
-//    @JsonIgnoreProperties("jobApplications")
+    @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
+
     private List<JobApplication> jobApplications;
 
 }

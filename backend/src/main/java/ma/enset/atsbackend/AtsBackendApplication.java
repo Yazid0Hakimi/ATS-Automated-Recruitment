@@ -21,7 +21,7 @@ public class AtsBackendApplication {
         SpringApplication.run(AtsBackendApplication.class, args);
     }
 
-    @Bean
+//    @Bean
     public CommandLineRunner commandLineRunner(JobService jobService,
                                                CandidateService candidateService,
                                                CompanyService companyService,
@@ -72,7 +72,7 @@ public class AtsBackendApplication {
                 job.setDescription("Description for job " + (i + 1));
                 job.setImage("Image URL for job " + (i + 1));
                 job.setJobTitle("Job Title " + (i + 1));
-                job.setEnterpriseName("Enterprise Name " + (i + 1));
+//                job.setEnterpriseName("Enterprise Name " + (i + 1));
                 job.setWorkTime("Work Time for job " + (i + 1));
                 job.setCity("City for job " + (i + 1));
                 job.setRecruiterId("Recruiter ID for job " + (i + 1));
@@ -91,7 +91,7 @@ public class AtsBackendApplication {
                 job.setDescription("Description for job " + (i + 1));
                 job.setImage("Image URL for job " + (i + 1));
                 job.setJobTitle("Job Title " + (i + 1));
-                job.setEnterpriseName("Enterprise Name " + (i + 1));
+//                job.setEnterpriseName("Enterprise Name " + (i + 1));
                 job.setWorkTime("Work Time for job " + (i + 1));
                 job.setCity("City for job " + (i + 1));
                 job.setCompany(companyService.getCompanyById(1)); // Assuming you have a company with ID 1
@@ -205,7 +205,7 @@ public class AtsBackendApplication {
         };
     }
 
-        @Bean
+//        @Bean
     public CommandLineRunner commandLineRunner2(JobApplicationRepository jobApplicationRepository,
                                                 CandidateRepository candidateRepository,
                                                 JobRepository jobRepository,
@@ -228,7 +228,7 @@ public class AtsBackendApplication {
             job1.setDescription("Job 1 Description");
             job1.setImage("job1.jpg");
             job1.setJobTitle("Job 1 Title");
-            job1.setEnterpriseName("Enterprise 1");
+//            job1.setEnterpriseName("Enterprise 1");
             job1.setCompany(companyService.getCompanyById(1));
 
             job1.setWorkTime("Full-time");
@@ -244,7 +244,7 @@ public class AtsBackendApplication {
             job2.setDescription("Job 2 Description");
             job2.setImage("job2.jpg");
             job2.setJobTitle("Job 2 Title");
-            job2.setEnterpriseName("Enterprise 2");
+//            job2.setEnterpriseName("Enterprise 2");
             job2.setWorkTime("Part-time");
             job2.setCity("City 2");
             job2.setCompany(companyService.getCompanyById(1));
@@ -296,7 +296,7 @@ public class AtsBackendApplication {
         };
     }
 
-    @Bean
+//@Bean
     CommandLineRunner initData(JobApplicationRepository jobApplicationRepository,
                                CandidateService candidateService,
                                JobService jobService,
@@ -329,21 +329,21 @@ public class AtsBackendApplication {
             // Create Jobs
             Job job1 = new Job();
             job1.setDate(new Date());
-            job1.setEnterpriseName("Enterprise1");
+//            job1.setEnterpriseName("Enterprise1");
             job1.setJobDomaine("IT");
             job1.setCompany(companyService.getCompanyById(1)); // Assuming you have a company with ID 1
             job1.setJobTitle("Software Engineer");
 
             Job job2 = new Job();
             job2.setDate(new Date());
-            job2.setEnterpriseName("Enterprise2");
+//            job2.setEnterpriseName("Enterprise2");
             job2.setJobDomaine("Finance");
             job2.setCompany(companyService.getCompanyById(2)); // Assuming you have a company with ID 2
             job2.setJobTitle("Financial Analyst");
 
             Job job3 = new Job();
             job3.setDate(new Date());
-            job3.setEnterpriseName("Enterprise3");
+//            job3.setEnterpriseName("Enterprise3");
             job3.setJobDomaine("Marketing");
             job3.setCompany(companyService.getCompanyById(1)); // Assuming you have a company with ID 3
             job3.setJobTitle("Marketing Manager");
