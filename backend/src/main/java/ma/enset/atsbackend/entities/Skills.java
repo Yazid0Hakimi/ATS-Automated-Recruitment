@@ -25,10 +25,10 @@ public class Skills {
     @Max(value = 10, message = "max len")
     private double level;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<Candidate> candidate;
+    private Candidate candidate;
 
     @Override
     public String toString() {

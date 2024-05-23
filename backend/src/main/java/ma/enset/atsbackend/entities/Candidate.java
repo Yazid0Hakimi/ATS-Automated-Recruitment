@@ -26,10 +26,10 @@ public class Candidate extends AtsUser {
     @OneToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
     private List<Experience> experienceList;
 
-    @ManyToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
     private List<Languages> languagesList;
 
-    @ManyToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
     private List<Skills> skillsList;
 
     @OneToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
