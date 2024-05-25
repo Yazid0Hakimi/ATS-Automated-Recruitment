@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Img from '../assets/job.png'
 import { Link } from 'react-router-dom';
 import { FaCamera, FaEye, FaPlus, FaEyeSlash } from 'react-icons/fa6';
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const CandidateRegistrationPage = () => {
     const [showFirstForm, setShowFirstForm] = useState(true);
@@ -18,6 +19,7 @@ const CandidateRegistrationPage = () => {
             endDate: ''
         }
     ]);
+
     const [experience, setExperience] = useState([
         {
             jobTitle: '',
@@ -27,6 +29,20 @@ const CandidateRegistrationPage = () => {
             endDate: ''
         }
     ]);
+
+    const [skills, setSkills] = useState([
+        {
+            name: '',
+            level: 0
+        }
+    ])
+
+    const [languages, setLanguages] = useState([
+        {
+            name: '',
+            level: 0
+        }
+    ])
 
     const handleNextButtonClick = () => {
         setShowFirstForm(false);
@@ -50,6 +66,27 @@ const CandidateRegistrationPage = () => {
             }
         ]);
     };
+
+    const handleAddSkill = () => {
+        setSkills([
+            ...skills,
+            {
+                name: '',
+                level: 0
+            }
+        ])
+    }
+
+    const handleAddLanguage = () => {
+        setLanguages([
+            ...languages,
+            {
+                name: '',
+                level: 0
+            }
+        ])
+    }
+
     const handleAddExperience = () => {
         setExperience([
             ...experience,
@@ -62,6 +99,23 @@ const CandidateRegistrationPage = () => {
             }
         ]);
     };
+
+    const handleRemoveLanguage = (index) => {
+        setLanguages(languages.filter((_, i) => i !== index));
+    };
+
+    const handleRemoveSkill = (index) => {
+        setSkills(skills.filter((_, i) => i !== index));
+    };
+
+    const handleRemoveExperience = () => {
+        setExperience(experience.slice(0, experience.length - 1));
+    };
+
+    const handleRemoveEducation = () => {
+        setEducation(education.slice(0, education.length - 1));
+    };
+    
 
     return (
         <>
@@ -209,7 +263,10 @@ const CandidateRegistrationPage = () => {
                             <div className="mb-4">
                                 <div className='flex justify-between items-center mb-2'>
                                     <label htmlFor="education" className="block text-sm font-medium text-black">Education</label>
-                                    <button type='button' onClick={handleAddEducation}><FaPlus /></button>
+                                    <div className='flex gap-2'>
+                                        <button type='button' onClick={handleRemoveEducation}><FaRegTrashAlt /></button>
+                                        <button type='button' onClick={handleAddEducation}><FaPlus /></button>
+                                    </div>
                                 </div>
                                 {education.map((edu, index) => (
                                     <div className="grid grid-cols-1 gap-4 mb-2" key={index}>
@@ -249,7 +306,10 @@ const CandidateRegistrationPage = () => {
                             <div className="mb-4">
                                 <div className='flex justify-between items-center mb-2'>
                                     <label htmlFor="education" className="block text-sm font-medium text-black">Experience</label>
-                                    <button type='button' onClick={handleAddExperience}><FaPlus /></button>
+                                    <div className='flex gap-2'>
+                                        <button type='button' onClick={handleRemoveExperience}><FaRegTrashAlt /></button>
+                                        <button type='button' onClick={handleAddExperience}><FaPlus /></button>
+                                    </div>
                                 </div>
                                 {experience.map((exp, index) => (
                                     <div className="grid grid-cols-1 gap-4 mb-2" key={index}>
@@ -287,23 +347,69 @@ const CandidateRegistrationPage = () => {
                             </div>
                             {/* Skills Section */}
                             <div className="mb-4">
-                                <label htmlFor="skills" className="block text-sm font-medium text-black">Skills</label>
-                                <textarea
-                                    id="skills"
-                                    placeholder="Enter your skills and separate them with comma (,)"
-                                    className="w-full mt-1 p-2 rounded-lg resize-none outline-none border border-black"
-                                    rows="6"
-                                ></textarea>
+                                <div className='flex justify-between items-center mb-2'>
+                                    <label htmlFor="education" className="block text-sm font-medium text-black">Skills</label>
+                                    <button type='button' onClick={handleAddSkill}><FaPlus /></button>
+                                </div>
+                                {skills.map((skill, index) => (
+                                    <div className='grid grid-cols-4 items-center gap-2 my-2' key={index}>
+                                        <input
+                                            type="text"
+                                            placeholder="Skill name"
+                                            className="p-2 rounded-lg outline-none border border-black col-span-3"
+                                        />
+                                        <div className='flex col-span-1'>
+                                            <div className='relative'>
+                                                <input
+                                                    type='text'
+                                                    placeholder='your level'
+                                                    className="p-2 w-full rounded-lg outline-none border border-black pr-8"
+                                                />
+                                                <span className='absolute right-2 top-1/2 transform -translate-y-1/2'>/ 10</span>
+                                            </div>
+                                            <button
+                                                type='button'
+                                                onClick={() => handleRemoveSkill(index)}
+                                                className="text-black ml-2 flex justify-end items-center"
+                                            >
+                                                <FaRegTrashAlt />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                             {/* Languages Section */}
                             <div className="mb-4">
-                                <label htmlFor="languages" className="block text-sm font-medium text-black">Languages</label>
-                                <textarea
-                                    id="languages"
-                                    placeholder="Enter your languages and separate them with comma (,)"
-                                    className="w-full mt-1 p-2 rounded-lg resize-none outline-none border border-black"
-                                    rows="4"
-                                ></textarea>
+                                <div className='flex justify-between items-center mb-2'>
+                                    <label htmlFor="education" className="block text-sm font-medium text-black">Languages</label>
+                                    <button type='button' onClick={handleAddLanguage}><FaPlus /></button>
+                                </div>
+                                {languages.map((lang, index) => (
+                                    <div className='grid grid-cols-4 items-center gap-2 my-2' key={index}>
+                                        <input
+                                            type="text"
+                                            placeholder="Language name"
+                                            className="p-2 rounded-lg outline-none border border-black col-span-3"
+                                        />
+                                        <div className='flex col-span-1'>
+                                            <div className='relative'>
+                                                <input
+                                                    type='text'
+                                                    placeholder='your level'
+                                                    className="p-2 w-full rounded-lg outline-none border border-black pr-8"
+                                                />
+                                                <span className='absolute right-2 top-1/2 transform -translate-y-1/2'>/ 10</span>
+                                            </div>
+                                            <button
+                                                type='button'
+                                                onClick={() => handleRemoveLanguage(index)}
+                                                className="text-black ml-2 flex justify-end items-center"
+                                            >
+                                                <FaRegTrashAlt />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                             <div className="flex justify-between gap-1">
                                 <button
