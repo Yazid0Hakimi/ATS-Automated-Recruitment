@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { FaEye, FaSearch } from 'react-icons/fa'
-import { PiUsersThreeFill } from 'react-icons/pi'
-import { MdDelete, MdEdit } from 'react-icons/md'
+import { FaSearch } from 'react-icons/fa'
+import { FiChevronsRight } from "react-icons/fi";
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const JobCandidates = () => {
+    const [candidateForJob, setCandidateForJob] = useState([])
+
+    useEffect(() => {
+        const fetchCandidates = async () => {
+            try {
+                const res = await axios.get(`http://localhost:8085/candidatesByJobId/1`);
+                console.log(res.data);
+                setCandidateForJob(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchCandidates();
+    }, [])
+    
     return (
         <>
             <Navbar />
@@ -27,74 +44,56 @@ const JobCandidates = () => {
                         <thead className="uppercase border-b border-black">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
-                                    Job Title
+                                    First Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Candidate Name
+                                    Last Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Applied At
+                                    Phone
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Score Matching
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Skills
+                                    Gender
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Applied At
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="bg-white border-b border-black">
-                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
-                                    Data Scientist
-                                </th>
-                                <td className="px-6 py-4">
-                                    John Doe
-                                </td>
-                                <td className="px-6 py-4">
-                                    2024-04-21
-                                </td>
-                                <td className="px-6 py-4">
-                                    52 %
-                                </td>
-                                <td className="px-6 py-4">
-                                    Python, Machine Learning, Data Analysis...
-                                </td>
-                            </tr>
-                            <tr className="bg-white border-b border-black">
-                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
-                                    Data Scientist
-                                </th>
-                                <td className="px-6 py-4">
-                                    Jane Doe
-                                </td>
-                                <td className="px-6 py-4">
-                                    2024-04-21
-                                </td>
-                                <td className="px-6 py-4">
-                                    52 %
-                                </td>
-                                <td className="px-6 py-4">
-                                    Python, Machine Learning, Data Analysis...
-                                </td>
-                            </tr>
-                            <tr className="bg-white border-b border-black">
-                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
-                                    Data Scientist
-                                </th>
-                                <td className="px-6 py-4">
-                                    John Doe
-                                </td>
-                                <td className="px-6 py-4">
-                                    2024-04-21
-                                </td>
-                                <td className="px-6 py-4">
-                                    52 %
-                                </td>
-                                <td className="px-6 py-4">
-                                    Python, Machine Learning, Data Analysis...
-                                </td>
-                            </tr>
+                            {candidateForJob.map(candidate => (
+                                <tr key={candidate.id} className="bg-white border-b border-black">
+                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
+                                        {candidate.firstName}
+                                    </th>
+                                    <td className="px-6 py-4">
+                                        {candidate.lastName}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {candidate.phone}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        52 %
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {candidate.gender}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {candidate.application_date}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <Link to={`/candidates/${candidate.id}`}>
+                                            <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><FiChevronsRight /></button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
