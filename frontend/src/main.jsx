@@ -18,11 +18,38 @@ import CompanyRegistrationPage from './pages/CompanyRegistrationPage.jsx';
 import CandidateProfilePage from './pages/CandidateProfilePage.jsx';
 import CreateJobPage from './pages/CreateJobPage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
+import CompanyProfilePage from './pages/CompanyProfilePage.jsx';
+import AdminLoginPage from './pages/AdminLoginPage.jsx';
+import CompanyRequestsPage from './pages/CompanyRequestsPage.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
+import AddNewAdminPage from './pages/AddNewAdminPage.jsx';
+import AdminSettingsPage from './pages/AdminSettingsPage.jsx';
+import CompaniesPage from './pages/CompaniesPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLoginPage />,
+  },
+  {
+    path: "/admin/add-new-admin",
+    element: <AddNewAdminPage />,
+  },
+  {
+    path: "/admin/company-requests",
+    element: <CompanyRequestsPage />,
+  },
+  {
+    path: "/admin/settings",
+    element: <AdminSettingsPage />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: <AdminDashboard />,
   },
   {
     path: "/login",
@@ -61,8 +88,16 @@ const router = createBrowserRouter([
     element: <JobCandidates />,
   },
   {
-    path: "/profile",
+    path: "/candidates/:id",
     element: <CandidateProfilePage />,
+  },
+  {
+    path: "/companies",
+    element: <CompaniesPage />,
+  },
+  {
+    path: "/companies/:id",
+    element: <CompanyProfilePage />,
   },
 ]);
 

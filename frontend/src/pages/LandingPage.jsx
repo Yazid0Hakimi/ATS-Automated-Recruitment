@@ -11,9 +11,13 @@ import Hero from '../components/LandingPage/Hero'
 import CountCard from '../components/LandingPage/CountCard'
 import JobCard from '../components/JobCard'
 import HowItWorksCard from '../components/LandingPage/HowItWorksCard'
+import Footer from '../components/Footer'
 
 const LandingPage = () => {
     const [jobs, setJobs] = useState([])
+    const [countCandidates, setCountCandidates] = useState(0)
+    const [countCompanies, setCountCompanies] = useState(0)
+    const [countJobs, setCountJobs] = useState(0)
     const howItWorksList = [
         {icon: TbUsers, title: "Create an Account", description: "Create an account to get started"},
         {icon: HiOutlineBuildingLibrary, title: "Post Job", description: "Post a job and start receiving applications"},
@@ -22,10 +26,34 @@ const LandingPage = () => {
 
     // Fetch jobs from the backend using axios
     useEffect(() => {
-        axios.get('http://localhost:8085/jobs')
+        axios.get('http://localhost:8085/Lastjobs')
             .then(res => {
                 console.log(res.data)
                 setJobs(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        axios.post('http://localhost:8085/candidatesCount')
+            .then(res => {
+                console.log(res.data)
+                setCountCandidates(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        axios.post('http://localhost:8085/companiesCount')
+            .then(res => {
+                console.log(res.data)
+                setCountCompanies(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        axios.post('http://localhost:8085/jobsCount')
+            .then(res => {
+                console.log(res.data)
+                setCountJobs(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -42,9 +70,11 @@ const LandingPage = () => {
         <Hero />
         <div className='w-[80%] mx-auto py-20'> 
             <div className='grid grid-cols-3 gap-4'>
-                <CountCard icon={TbUsers} title='Candidate' count={100} />
-                <CountCard icon={HiOutlineBuildingLibrary} title='Company' count={100} />
-                <CountCard icon={MdOutlineWorkOutline} title='Job' count={100} />
+                <>
+                <CountCard icon={TbUsers} title="Candidate" count={countCandidates} />
+                <CountCard icon={HiOutlineBuildingLibrary} title="Company" count={countCompanies} />
+                <CountCard icon={MdOutlineWorkOutline} title="Job" count={countJobs} />
+                </>
             </div>
         </div>
         <div className='w-[80%] mx-auto'>
@@ -59,7 +89,7 @@ const LandingPage = () => {
                             <JobCard
                                 time={getTimeAgo(job.date)}
                                 jobTitle={job.jobTitle}
-                                companyName={job.enterpriseName}
+                                companyName={job.company.name}
                                 companyCity={job.city}
                                 domain={job.jobDomaine}
                                 jobType={job.workTime}
@@ -88,6 +118,7 @@ const LandingPage = () => {
                 </div>
             </div>
         </div>
+        <Footer />
         </>
     )
 }

@@ -1,111 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Filter = () => {
+const Filter = ({onFilter}) => {
+    const [filters, setFilters] = useState({
+        search: '',
+        jobType: '',
+        domain: ''
+    });
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFilters({
+            ...filters,
+            [name]: value
+        });
+    };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onFilter(filters);
+    };
+
     return (
-        <div className="bg-transparent p-4">
-            <h2 className="text-2xl font-bold mb-4 text-[#2D82B7] border-b border-[#2D82B7] pb-5">Filter Jobs</h2>
-            <div className="mb-4 border-b border-[#2D82B7] pb-5">
-                <label className="block text-lg font-medium text-black mb-1">Job Type</label>
-                <ul>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="fullTime"
-                            name="fullTime"
-                            className="mr-1"
-                        />
-                        <label htmlFor="fullTime" className="mr-4">Full Time</label>
-                    </li>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="partTime"
-                            name="partTime"
-                            className="mr-1"
-                        />
-                        <label htmlFor="partTime">Part Time</label>
-                    </li>
-                    <li className='flex items-center'>
-                        <input
-                            type="checkbox"
-                            id="internship"
-                            name="internship"
-                            className="mr-1"
-                        />
-                        <label htmlFor="internship">Internship</label>
-                    </li>
-                </ul>
+        <form onSubmit={handleSubmit} className="mb-4">
+            <div className="flex space-x-4">
+                <input
+                type="text"
+                name="search"
+                value={filters.search}
+                onChange={handleChange}
+                placeholder="Search..."
+                className="px-4 py-2 border rounded outline-none w-full"
+                />
+                <select
+                name="jobType"
+                value={filters.jobType}
+                onChange={handleChange}
+                className="px-4 py-2 border rounded outline-none"
+                >
+                    <option value="">All Types</option>
+                    <option value="fulltime">Full-time</option>
+                    <option value="parttime">Part-time</option>
+                </select>
+                <select
+                name="domain"
+                value={filters.domain}
+                onChange={handleChange}
+                className="px-4 py-2 border rounded outline-none"
+                >
+                    <option value="">All Domains</option>
+                    <option value="IT">IT</option>
+                    <option value="Finance">Finance</option>
+                </select>
+                <button type="submit" className="px-4 py-2 bg-[#2D82B7] text-white rounded">Filter</button>
             </div>
-            <div className="mb-4 border-b border-[#2D82B7] pb-5">
-                <label className="block text-lg font-medium text-black mb-1">Education</label>
-                <ul>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="bachelors"
-                            name="bachelors"
-                            className="mr-1"
-                        />
-                        <label htmlFor="bachelors" className="mr-4">Bachelors</label>
-                    </li>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="masters"
-                            name="masters"
-                            className="mr-1"
-                        />
-                        <label htmlFor="masters">Masters</label>
-                    </li>
-                </ul>
-            </div>
-            <div className="mb-4 border-b border-[#2D82B7] pb-5">
-                <label className="block text-lg font-medium text-black mb-1">Experience</label>
-                <ul>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="no_experience"
-                            name="no_experience"
-                            className="mr-1"
-                        />
-                        <label htmlFor="no_experience" className="mr-4">No experience</label>
-                    </li>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="one_year"
-                            name="one_year"
-                            className="mr-1"
-                        />
-                        <label htmlFor="one_year">1 Year</label>
-                    </li>
-                </ul>
-            </div>
-            <div className="mb-4">
-                <label className="block text-lg font-medium text-black mb-1">Salary Range</label>
-                <ul>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="range_one"
-                            name="range_one"
-                            className="mr-1"
-                        />
-                        <label htmlFor="range_one" className="mr-4">$ 1 - $ 5000</label>
-                    </li>
-                    <li className="flex items-center">
-                        <input
-                            type="checkbox"
-                            id="range_two"
-                            name="range_two"
-                            className="mr-1"
-                        />
-                        <label htmlFor="range_two">$ 5000 - $ 10000</label>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        </form>
     )
 }
 

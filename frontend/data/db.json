@@ -1,0 +1,198 @@
+{
+  "counts": [
+    {
+      "title": "Candidate",
+      "number": "1000",
+      "id": "c950"
+    },
+    {
+      "title": "Company",
+      "number": "165",
+      "id": "a02c"
+    },
+    {
+      "title": "Job",
+      "number": "12063",
+      "id": "ba47"
+    }
+  ],
+  "jobs": [
+    {
+      "time": "2024-03-01",
+      "jobTitle": "Software Engineer",
+      "companyName": "Google",
+      "companyCity": "New York",
+      "domain": "IT",
+      "jobType": "fulltime",
+      "salary": "100000",
+      "description": "Google is looking for a software engineer to join our team in New York. The ideal candidate will have a strong background in computer science and experience with Java, Python, and C++. The candidate will work on a variety of projects, including developing new features for our search engine and improving the performance of our ad platform. The candidate will also have the opportunity to work on cutting-edge technologies, such as machine learning and artificial intelligence. The candidate will work in a fast-paced environment and will have the opportunity to collaborate with a team of talented engineers. The candidate will also have the opportunity to work on projects that have a real impact on people's lives, such as improving access to information and connecting people with the information they need. The candidate will have the opportunity to work on projects that have a real impact on people's lives, such as improving access to information and connecting people with the information they need.",
+      "id": "9273"
+    },
+    {
+      "time": "2024-03-01",
+      "jobTitle": "Data Scientist",
+      "companyName": "Facebook",
+      "companyCity": "San Francisco",
+      "domain": "IT",
+      "jobType": "fulltime",
+      "salary": "120000",
+      "description": "Facebook is looking for a data scientist to join our team in San Francisco. The ideal candidate will have a strong background in statistics, machine learning, and data analysis. The candidate will work on a variety of projects, including developing new algorithms for analyzing user data and improving the performance of our ad platform. The candidate will also have the opportunity to work on cutting-edge technologies, such as deep learning and natural language processing. The candidate will work in a fast-paced environment and will have the opportunity to collaborate with a team of talented data scientists. The candidate will also have the opportunity to work on projects that have a real impact on people's lives, such as improving the quality of our news feed and reducing the spread of misinformation.",
+      "id": "acff"
+    },
+    {
+      "time": "2024-03-01",
+      "jobTitle": "Product Manager",
+      "companyName": "Amazon",
+      "companyCity": "Seattle",
+      "domain": "IT",
+      "jobType": "fulltime",
+      "salary": "130000",
+      "description": "Amazon is looking for a product manager to join our team in Seattle. The ideal candidate will have a strong background in product management and experience with e-commerce and cloud computing. The candidate will work on a variety of projects, including developing new features for our e-commerce platform and improving the performance of our cloud services. The candidate will also have the opportunity to work on cutting-edge technologies, such as artificial intelligence and machine learning. The candidate will work in a fast-paced environment and will have the opportunity to collaborate with a team of talented product managers. The candidate will also have the opportunity to work on projects that have a real impact on people's lives, such as improving the shopping experience for our customers and helping businesses grow their online presence.",
+      "id": "6783"
+    },
+    {
+      "time": "2024-03-01",
+      "jobTitle": "Software Engineer",
+      "companyName": "Microsoft",
+      "companyCity": "Redmond",
+      "domain": "IT",
+      "jobType": "fulltime",
+      "salary": "110000",
+      "description": "Microsoft is looking for a software engineer to join our team in Redmond. The ideal candidate will have a strong background in computer science and experience with C#, .NET, and Azure. The candidate will work on a variety of projects, including developing new features for our cloud services and improving the performance of our operating systems. The candidate will also have the opportunity to work on cutting-edge technologies, such as artificial intelligence and machine learning. The candidate will work in a fast-paced environment and will have the opportunity to collaborate with a team of talented engineers. The candidate will also have the opportunity to work on projects that have a real impact on people's lives, such as improving access to information and connecting people with the information they need.",
+      "id": "494b"
+    },
+    {
+      "time": "2024-03-01",
+      "jobTitle": "Software Engineer",
+      "companyName": "Google",
+      "companyCity": "New York",
+      "domain": "IT",
+      "jobType": "fulltime",
+      "salary": "100000",
+      "description": "Google is looking for a software engineer to join our team in New York. The ideal candidate will have a strong background in computer science and experience with Java, Python, and C++. The candidate will work on a variety of projects, including developing new features for our search engine and improving the performance of our ad platform. The candidate will also have the opportunity to work on cutting-edge technologies, such as machine learning and artificial intelligence. The candidate will work in a fast-paced environment and will have the opportunity to collaborate with a team of talented engineers. The candidate will also have the opportunity to work on projects that have a real impact on people's lives, such as improving access to information and connecting people with the information they need.",
+      "id": "3db6"
+    },
+    {
+      "time": "2024-03-01",
+      "jobTitle": "Data Scientist",
+      "companyName": "Facebook",
+      "companyCity": "San Francisco",
+      "domain": "IT",
+      "jobType": "fulltime",
+      "salary": "120000",
+      "description": "Facebook is looking for a data scientist to join our team in San Francisco. The ideal candidate will have a strong background in statistics, machine learning, and data analysis. The candidate will work on a variety of projects, including developing new algorithms for analyzing user data and improving the performance of our ad platform. The candidate will also have the opportunity to work on cutting-edge technologies, such as deep learning and natural language processing. The candidate will work in a fast-paced environment and will have the opportunity to collaborate with a team of talented data scientists. The candidate will also have the opportunity to work on projects that have a real impact on people's lives, such as improving the quality of our news feed and reducing the spread of misinformation.",
+      "id": "bb9d"
+    },
+    {
+      "id": "55d6",
+      "time": "2024-04-29",
+      "jobTitle": "DevOps engineer",
+      "companyName": "Adria",
+      "companyCity": "Meknes",
+      "domain": "IT",
+      "jobType": "full-time",
+      "salary": "10000",
+      "description": "Adria Search a DevOps engineer"
+    }
+  ],
+  "candidates": [
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "John@gmail.com",
+        "password": "123456",
+        "phone": "123456789",
+        "gender": "Male",
+        "city": "New York",
+        "bio": "I am a software engineer with 5 years of experience in Java, Python, and C++. I have worked on a variety of projects, including developing new features for search engines and improving the performance of ad platforms. I am passionate about technology and enjoy working in a fast-paced environment. I am looking for a new opportunity to work on cutting-edge technologies and collaborate with a team of talented engineers.",
+        "education": [
+            {
+                "school": "Stanford University",
+                "diploma": "Bachelor's degree in Computer Science",
+                "specialization": "Software Engineering",
+                "startDate": "2014-09-01",
+                "endDate": "2018-06-01"
+            },
+            {
+                "school": "Stanford University",
+                "diploma": "Master's degree in Computer Science",
+                "specialization": "Artificial Intelligence",
+                "startDate": "2018-09-01",
+                "endDate": "2020-06-01"
+            }
+        ],
+        "experience": [
+            {
+                "jobPosition": "Software Engineer",
+                "company": "Google",
+                "city": "New York",
+                "startDate": "2020-06-01",
+                "endDate": "2022-06-01"
+            },
+            {
+                "jobPosition": "Software Engineer",
+                "company": "Microsoft",
+                "city": "Redmond",
+                "startDate": "2018-06-01",
+                "endDate": "2020-06-01"
+            }
+        ],
+        "skills": [
+            {
+                "name": "Java",
+                "level": "Expert"
+            },
+            {
+                "name": "Python",
+                "level": "Expert"
+            },
+            {
+                "name": "C++",
+                "level": "Expert"
+            },
+            {
+                "name": "Machine Learning",
+                "level": "Expert"
+            },
+            {
+                "name": "Artificial Intelligence",
+                "level": "Expert"
+            }
+        ],
+        "languages": [
+            {
+                "name": "English",
+                "level": "Fluent"
+            },
+            {
+                "name": "Spanish",
+                "level": "Intermediate"
+            }
+        ]
+    }
+  ],
+  "companies": [
+    {
+        "logo": "",
+        "name": "Google",
+        "email": "google@mail.com",
+        "password": "123456",
+        "phone": "123456789",
+        "city": "New York",
+        "description": "Google is a multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware. It is considered one of the Big Four technology companies, alongside Amazon, Apple, and Microsoft.",
+        "industry": "Technology",
+        "website": "www.google.com"
+    },
+    {
+        "logo": "",
+        "name": "Facebook",
+        "email": "facebook@mail.com",
+        "password": "123456",
+        "phone": "123456789",
+        "city": "San Francisco",
+        "description": "Facebook is an American online social media and social networking service company based in Menlo Park, California. Its website was launched on February 4, 2004, by Mark Zuckerberg, along with fellow Harvard College students and roommates Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, and Chris Hughes.",
+        "industry": "Technology",
+        "website": "www.facebook.com"
+    }
+  ]
+}
