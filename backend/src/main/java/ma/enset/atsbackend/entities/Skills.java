@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@JsonIgnoreProperties({"candidate"})
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Skills {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,17 +24,4 @@ public class Skills {
     @Min(value = 0, message = "minimum len")
     @Max(value = 10, message = "max len")
     private double level;
-
-    @ManyToOne
-    @JsonIgnore
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Candidate candidate;
-
-    @Override
-    public String toString() {
-        return "Skills{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

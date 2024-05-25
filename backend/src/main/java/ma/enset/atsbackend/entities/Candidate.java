@@ -30,7 +30,7 @@ public class Candidate extends AtsUser {
     private List<Languages> languagesList;
 
     @OneToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
-    private List<Skills> skillsList;
+    private List<CandidateSkills> skillsList;
 
     @OneToMany(mappedBy = "candidate", fetch = FetchType.EAGER)
     private List<JobApplication> jobApplications;

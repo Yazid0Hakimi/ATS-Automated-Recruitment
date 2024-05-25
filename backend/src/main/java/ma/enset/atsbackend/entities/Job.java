@@ -29,14 +29,17 @@ public class Job {
     private String salaire;
     private String jobDomaine;
 
-    @ManyToMany (fetch = FetchType.LAZY)
-    private List<Skills> requiredSkills;
+//    @ManyToMany (fetch = FetchType.LAZY)
+//    private List<Skills> requiredSkills;
 
     @ManyToOne
     private Company company;
 
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
-
     private List<JobApplication> jobApplications;
+
+    @OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
+    private List<JobSkills> skillsList;
+
 
 }
