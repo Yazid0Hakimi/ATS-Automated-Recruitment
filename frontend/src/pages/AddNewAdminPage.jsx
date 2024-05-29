@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Sidebar from '../components/Admin/Sidebar';
 
 const AddNewAdminPage = () => {
@@ -98,7 +98,7 @@ const AddNewAdminPage = () => {
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AddNewAdminPage
+export default AddNewAdminPage;

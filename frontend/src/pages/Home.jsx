@@ -65,13 +65,13 @@ const Home = () => {
                                     key={job.id}
                                 >
                                     <JobCard
-                                        time={getTimeAgo(job.date)}
-                                        jobTitle={job.jobTitle}
+                                        time={getTimeAgo(job.postedAt)}
+                                        jobTitle={job.title}
                                         companyName={job.company.name}
                                         companyCity={job.city}
-                                        domain={job.jobDomaine}
-                                        jobType={job.workTime}
-                                        salary={job.salaire}
+                                        domain={job.jobDomain}
+                                        jobType={job.jobType}
+                                        salary={job.salary}
                                     />
                                 </Link>
                             ))}

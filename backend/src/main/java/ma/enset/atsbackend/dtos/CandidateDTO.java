@@ -9,6 +9,10 @@ import java.util.List;
 
 @Data
 public class CandidateDTO extends AtsUser {
+    private String firstName;
+    private String lastName;
+    private String password;
+    private String email;
     private String address;
     private String phone;
     private String gender;
@@ -16,12 +20,9 @@ public class CandidateDTO extends AtsUser {
     private String profilePic;
     private String bio;
 
-    private List<Education> educationList;
-
-    private List<Experience> experienceList;
-
-    private List<Languages> languagesList;
-
-    private List<Skills> skillsList;
+    private List<Experience> experiences;
+    private List<Education> educations;
+    private List<Skills> skills;
+    private List<Languages> languages;
 
 }

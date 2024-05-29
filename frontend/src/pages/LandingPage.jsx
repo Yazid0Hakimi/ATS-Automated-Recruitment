@@ -26,7 +26,7 @@ const LandingPage = () => {
 
     // Fetch jobs from the backend using axios
     useEffect(() => {
-        axios.get('http://localhost:8085/Lastjobs')
+        axios.get('http://localhost:8085/jobs/last')
             .then(res => {
                 console.log(res.data)
                 setJobs(res.data)
@@ -34,7 +34,7 @@ const LandingPage = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.post('http://localhost:8085/candidatesCount')
+        axios.post('http://localhost:8085/candidates/count')
             .then(res => {
                 console.log(res.data)
                 setCountCandidates(res.data)
@@ -42,7 +42,7 @@ const LandingPage = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.post('http://localhost:8085/companiesCount')
+        axios.post('http://localhost:8085/companies/count')
             .then(res => {
                 console.log(res.data)
                 setCountCompanies(res.data)
@@ -50,7 +50,7 @@ const LandingPage = () => {
             .catch(err => {
                 console.log(err)
             })
-        axios.post('http://localhost:8085/jobsCount')
+        axios.post('http://localhost:8085/jobs/count')
             .then(res => {
                 console.log(res.data)
                 setCountJobs(res.data)
@@ -87,13 +87,13 @@ const LandingPage = () => {
                             key={job.id}
                         >
                             <JobCard
-                                time={getTimeAgo(job.date)}
-                                jobTitle={job.jobTitle}
+                                time={getTimeAgo(job.postedAt)}
+                                jobTitle={job.title}
                                 companyName={job.company.name}
                                 companyCity={job.city}
-                                domain={job.jobDomaine}
-                                jobType={job.workTime}
-                                salary={job.salaire}
+                                domain={job.jobDomain}
+                                jobType={job.jobType}
+                                salary={job.salary}
                             />
                         </Link>
                     ))}

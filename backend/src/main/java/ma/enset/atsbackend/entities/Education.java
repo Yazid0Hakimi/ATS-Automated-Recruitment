@@ -17,7 +17,7 @@ import java.util.List;
 @JsonIgnoreProperties({"candidate"})
 public class Education {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String school;
     private String diploma;
