@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Sidebar from '../components/Admin/Sidebar';
 
 const AddNewAdminPage = () => {
@@ -20,10 +21,18 @@ const AddNewAdminPage = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Here you can handle form submission logic, such as sending data to the server
         console.log(formData);
+        try {
+            const response = await axios.post('http://localhost:8085/admin', formData);
+            console.log('Admin created successfully:', response.data);
+            alert("Admin created Successfully!");
+        } catch (error) {
+            console.error('Error creating admin:', error);
+            alert("Something went wrong!");
+        }
         // Reset form after submission
         setFormData({
             firstName: '',

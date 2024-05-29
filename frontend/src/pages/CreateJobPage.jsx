@@ -6,14 +6,14 @@ import { FaPlus } from 'react-icons/fa6';
 
 const CreateJobPage = () => {
     const [formData, setFormData] = useState({
-        time: "2024-04-29",
-        jobTitle: '',
-        companyName: 'Adria',
-        companyCity: '',
-        domain: '',
+        title: "",
+        description: "",
+        city: "",
+        postedAt: new Date(),
         jobType: 'full-time',
-        salary: '',
-        description: ''
+        jobDomain: "",
+        salary: "",
+        company: { id: 1 },
     });
     
     const [skills, setSkills] = useState([
@@ -49,12 +49,14 @@ const CreateJobPage = () => {
         e.preventDefault();
         const completeData = { ...formData, skills };
         console.log(completeData);
-        // try {
-        //     const response = await axios.post('http://localhost:3000/jobs', completeData);
-        //     console.log('Job posted successfully:', response.data);
-        // } catch (error) {
-        //     console.error('Error posting job:', error);
-        // }
+        try {
+            const response = await axios.post('http://localhost:8085/jobs', completeData);
+            console.log('Job posted successfully:', response.data);
+            alert("Job Created Succefully !")
+        } catch (error) {
+            console.error('Error posting job:', error);
+            alert("Something went wrong !")
+        }
     };
 
     return (
@@ -65,12 +67,12 @@ const CreateJobPage = () => {
                     <h2 className='text-3xl font-bold text-[#2D82B7] mb-4'>Post a job</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
-                            <label htmlFor="jobTitle" className="block text-sm font-medium text-black">Job Title</label>
+                            <label htmlFor="title" className="block text-sm font-medium text-black">Job Title</label>
                             <input
                                 type="text"
-                                id="jobTitle"
-                                name="jobTitle"
-                                value={formData.jobTitle}
+                                id="title"
+                                name="title"
+                                value={formData.title}
                                 onChange={handleFormChange}
                                 placeholder="Enter a job title"
                                 className="w-full mt-1 p-2 rounded-lg outline-none border border-black"
@@ -91,24 +93,24 @@ const CreateJobPage = () => {
                             </select>
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="domain" className="block text-sm font-medium text-black">Job Domain</label>
+                            <label htmlFor="jobDomain" className="block text-sm font-medium text-black">Job Domain</label>
                             <input
                                 type="text"
-                                id="domain"
-                                name="domain"
-                                value={formData.domain}
+                                id="jobDomain"
+                                name="jobDomain"
+                                value={formData.jobDomain}
                                 onChange={handleFormChange}
                                 placeholder="Enter a job domain"
                                 className="w-full mt-1 p-2 rounded-lg outline-none border border-black"
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="companyCity" className="block text-sm font-medium text-black">City</label>
+                            <label htmlFor="city" className="block text-sm font-medium text-black">City</label>
                             <input
                                 type="text"
-                                id="companyCity"
-                                name="companyCity"
-                                value={formData.companyCity}
+                                id="city"
+                                name="city"
+                                value={formData.city}
                                 onChange={handleFormChange}
                                 placeholder="Enter a city"
                                 className="w-full mt-1 p-2 rounded-lg outline-none border border-black"

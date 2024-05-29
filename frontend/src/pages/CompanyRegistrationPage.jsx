@@ -42,8 +42,10 @@ const CompanyRegistrationPage = () => {
         try {
             const response = await axios.post('http://localhost:8085/companies', formData);
             console.log('Company registered successfully:', response.data);
+            alert("Company created succefully, you must wait approve from Admin !")
         } catch (error) {
             console.error('Error registering company:', error);
+            alert('Something went wrong')
         }
     };
 

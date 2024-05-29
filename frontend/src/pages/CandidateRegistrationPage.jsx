@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Img from '../assets/job.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { FaCamera, FaEye, FaPlus, FaEyeSlash } from 'react-icons/fa6';
 import { FaRegTrashAlt } from 'react-icons/fa';
 
@@ -20,6 +21,7 @@ const CandidateRegistrationPage = () => {
     const [phone, setPhone] = useState('');
     const [gender, setGender] = useState('male');
     const [city, setCity] = useState('');
+    const [profilePic, setProfilePic] = useState('')
     const [bio, setBio] = useState('');
 
     const [education, setEducation] = useState([
@@ -128,7 +130,7 @@ const CandidateRegistrationPage = () => {
         setEducation(education.slice(0, education.length - 1));
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
 
         const formData = {
@@ -140,6 +142,7 @@ const CandidateRegistrationPage = () => {
             phone,
             gender,
             city,
+            profilePic,
             bio,
             education,
             experience,
@@ -149,7 +152,16 @@ const CandidateRegistrationPage = () => {
 
         console.log('Form Data:', formData);
 
-        // Perform further actions like sending the data to a server
+        try {
+            const response = await axios.post('http://localhost:8085/candidates', formData);
+            console.log('Response:', response.data);
+            alert('Candidate Created successfully!');
+            // Handle successful response (e.g., show a success message, redirect, etc.)
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // Handle error (e.g., show an error message)
+            alert('Something went wrong!');
+        }
     };
 
     return (

@@ -79,7 +79,7 @@ const CandidateProfilePage = () => {
                     <button type='button' onClick={handleOpenModal}><FaPlus /></button>
                 </div>
                 <div>
-                    {user.experienceList && user.experienceList.length > 0 && user.experienceList.map((experience, index) => (
+                    {user.experiences && user.experiences.length > 0 && user.experiences.map((experience, index) => (
                         <ExperienceCard key={index} experience={experience} />
                     ))}
                 </div>
@@ -145,7 +145,7 @@ const CandidateProfilePage = () => {
                     <button type='button' onClick={handleEducationOpenModal}><FaPlus /></button>
                 </div>
                 <div>
-                    {user.educationList && user.educationList.length > 0 && user.educationList.map((education, index) => (
+                    {user.education && user.education.length > 0 && user.education.map((education, index) => (
                         <EducationCard key={index} education={education} />
                     ))}
                 </div>
@@ -211,7 +211,7 @@ const CandidateProfilePage = () => {
                     <button type='button' onClick={handleSkillOpenModal}><FaPlus /></button>
                 </div>
                 <div className='flex flex-wrap gap-2'>
-                    {user.skillsList && user.skillsList.map((skill, index) => (
+                    {user.skills && user.skills.map((skill, index) => (
                         <p key={index} className='p-2 border-2 rounded-xl border-[#2D82B7]'>{skill.name}</p>
                     ))}
                 </div>
@@ -263,7 +263,7 @@ const CandidateProfilePage = () => {
                     <button type='button' onClick={handleLanguageOpenModal}><FaPlus /></button>
                 </div>
                 <div className='flex flex-wrap gap-2'>
-                    {user.languagesList && user.languagesList.map((language, index) => (
+                    {user.languages && user.languages.map((language, index) => (
                         <p key={index} className='p-2 border-2 rounded-xl border-[#2D82B7]'>{language.name}</p>
                     ))}
                 </div>
