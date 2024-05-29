@@ -1,0 +1,13 @@
+# CREATE Job
+POST http://localhost:8085/score?jobId=1
+
+
+#C:\Program Files (x86)\Google\Cloud SDK
+#AIzaSyDZ4gKD36CzhlDiy4tTuimTwt44AkpG2oE
+
+#
+#Given the following candidate skills: [List candidate skills here]
+#
+#and the required job skills: [List job skills here]
+#
+#Identify the candidate with the most relevant skills that closely match the job requirements.

@@ -1,0 +1,63 @@
+{
+  "candidateSkills": [
+    [
+      [{
+        "skills": "Java",
+        "level": 3
+      },
+        {
+          "skills": "Python",
+          "level": 4
+        },
+        {
+          "skills": "Node.js",
+          "level": 5
+        }] ],
+    [
+      [{
+        "skills": "Java",
+        "level": 6
+      },
+        {
+          "skills": "Python",
+          "level": 2
+        },
+        {
+          "skills": "Node.js",
+          "level": 7
+        }] ],
+    [
+      [{
+        "skills": "Java",
+        "level": 9
+      },
+        {
+          "skills": "Python",
+          "level": 4
+        },
+        {
+          "skills": "Node.js",
+          "level": 2
+        }] ]
+  ],
+  "jobSkills": [
+    {
+      "skills": "Java",
+      "level": 8
+    },
+    {
+      "skills": "Python",
+      "level": 8
+    },
+    {
+      "skills": "Node.js",
+      "level": 8
+    }
+  ]
+}
+
+//Analyze the candidate skills against the job skills.  Calculate an overall score for each candidate from 0 to 10 based on how well their skills and levels match the job requirements. Output the scores in the following format:
+//
+//["1": <score>
+//"2": <score>
+//"3": <score>]
