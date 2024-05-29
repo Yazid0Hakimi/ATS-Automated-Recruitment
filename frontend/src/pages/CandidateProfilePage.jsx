@@ -15,16 +15,144 @@ const CandidateProfilePage = () => {
     const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
     const { id } = useParams()
 
+    const fetchUserData = async () => {
+        try {
+            const res = await axios.get(`http://localhost:8085/candidates/${id}`);
+            setUser(res.data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     useEffect(() => {
-        axios.get(`http://localhost:8085/candidates/${id}`)
-            .then(res => {
-                console.log(res.data)
-                setUser(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        fetchUserData();
     }, [])
+
+    const [experienceData, setExperienceData] = useState({
+        title: '',
+        company: '',
+        city: '',
+        startDate: '',
+        endDate: '',
+        candidate: {id: 52}
+    });
+
+    const handleExperienceInputChange = (e) => {
+        const { name, value } = e.target;
+        setExperienceData({
+            ...experienceData,
+            [name]: value
+        });
+    };
+
+    const handleExperienceSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8085/experiences', experienceData);
+            setUser((prevUser) => ({
+                ...prevUser,
+                experiences: [...prevUser.experiences, response.data],
+            }));
+            alert('Experience added successfully!');
+            handleCloseModal();
+        } catch (error) {
+            console.error('Error saving experience:', error);
+            alert('Something went wrong!');
+        }
+    };
+
+    // education
+    const [educationData, setEducationData] = useState({
+        school: '',
+        diploma: '',
+        speciality: '',
+        startDate: '',
+        endDate: '',
+        candidate: {id: 52}
+    });
+
+    const handleEducationInputChange = (e) => {
+        const { name, value } = e.target;
+        setEducationData({
+            ...educationData,
+            [name]: value
+        });
+    };
+
+    const handleEducationSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8085/educations', educationData);
+            setUser((prevUser) => ({
+                ...prevUser,
+                education: [...prevUser.education, response.data],
+            }));
+            alert('Education added successfully!');
+            handleEducationCloseModal();
+        } catch (error) {
+            console.error('Error saving experience:', error);
+            alert('Something went wrong!');
+        }
+    };
+
+    // Skills
+    const [skillData, setSkillData] = useState({
+        name: '',
+        level: '0'
+    })
+
+    const handleSkillInputChange = (e) => {
+        const { name, value } = e.target;
+        setSkillData({
+            ...skillData,
+            [name]: value
+        });
+    };
+
+    const handleSkillSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8085/candidateSkills', skillData);
+            setUser((prevUser) => ({
+                ...prevUser,
+                skills: [...prevUser.skills, response.data],
+            }));
+            alert('Skill added successfully!');
+            handleSkillCloseModal();
+        } catch (error) {
+            console.error('Error saving skill:', error);
+            alert('Something went wrong!');
+        }
+    };
+    // Languages
+    const [languageData, setLanguageData] = useState({
+        name: '',
+        level: '0'
+    })
+
+    const handleLanguageInputChange = (e) => {
+        const { name, value } = e.target;
+        setLanguageData({
+            ...languageData,
+            [name]: value
+        });
+    };
+
+    const handleLanguageSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8085/languages', languageData);
+            setUser((prevUser) => ({
+                ...prevUser,
+                languages: [...prevUser.languages, response.data],
+            }));
+            alert('Language added successfully!');
+            handleLanguageCloseModal();
+        } catch (error) {
+            console.error('Error saving language:', error);
+            alert('Something went wrong!');
+        }
+    };
 
 
     const handleOpenModal = () => {
@@ -94,34 +222,49 @@ const CandidateProfilePage = () => {
                                 <FaXmark />
                             </button>
                         </div>
-                        <form>
+                        <form onSubmit={handleExperienceSubmit}>
                             <div className="grid grid-cols-1 gap-4 mb-2">
                                 <input
                                     type="text"
+                                    name="title"
                                     placeholder="Job post title"
+                                    value={experienceData.title}
+                                    onChange={handleExperienceInputChange}
                                     className="p-2 rounded-lg outline-none border border-black"
                                 />
                                 <div className="grid grid-cols-2 gap-1">
                                     <input
                                         type="text"
+                                        name="company"
                                         placeholder="Company name"
+                                        value={experienceData.company}
+                                        onChange={handleExperienceInputChange}
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
                                     <input
                                         type="text"
+                                        name="city"
                                         placeholder="City"
+                                        value={experienceData.city}
+                                        onChange={handleExperienceInputChange}
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
                                 </div>
                                 <div className="grid grid-cols-2 gap-1">
                                     <input
                                         type="date"
+                                        name="startDate"
                                         placeholder="Start Date"
+                                        value={experienceData.startDate}
+                                        onChange={handleExperienceInputChange}
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
                                     <input
                                         type="date"
+                                        name="endDate"
                                         placeholder="End Date"
+                                        value={experienceData.endDate}
+                                        onChange={handleExperienceInputChange}
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
                                 </div>
@@ -160,21 +303,30 @@ const CandidateProfilePage = () => {
                                 <FaXmark />
                             </button>
                         </div>
-                        <form>
+                        <form onSubmit={handleEducationSubmit}>
                             <div className="grid grid-cols-1 gap-4 mb-2">
                                 <input
                                     type="text"
+                                    name='school'
+                                    value={educationData.school}
+                                    onChange={handleEducationInputChange}
                                     placeholder="School name"
                                     className="p-2 rounded-lg outline-none border border-black"
                                 />
                                 <div className='grid grid-cols-2 gap-1'>
                                     <input
                                         type="text"
+                                        name='diploma'
+                                        value={educationData.diploma}
+                                        onChange={handleEducationInputChange}
                                         placeholder="Diploma"
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
                                     <input
                                         type="text"
+                                        name='speciality'
+                                        value={educationData.speciality}
+                                        onChange={handleEducationInputChange}
                                         placeholder="Specialization"
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
@@ -182,11 +334,17 @@ const CandidateProfilePage = () => {
                                 <div className='grid grid-cols-2 gap-1'>
                                     <input
                                         type="date"
+                                        name='startDate'
+                                        value={educationData.startDate}
+                                        onChange={handleEducationInputChange}
                                         placeholder="Start Date"
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
                                     <input
                                         type="date"
+                                        name='endDate'
+                                        value={educationData.endDate}
+                                        onChange={handleEducationInputChange}
                                         placeholder="End Date"
                                         className="p-2 rounded-lg outline-none border border-black"
                                     />
@@ -226,10 +384,13 @@ const CandidateProfilePage = () => {
                                 <FaXmark />
                             </button>
                         </div>
-                        <form>
+                        <form onSubmit={handleSkillSubmit}>
                             <div className='grid grid-cols-4 items-center gap-2 my-2'>
                                 <input
                                     type="text"
+                                    name='name'
+                                    value={skillData.name}
+                                    onChange={handleSkillInputChange}
                                     placeholder="Skill name"
                                     className="p-2 rounded-lg outline-none border border-black col-span-3"
                                 />
@@ -237,6 +398,9 @@ const CandidateProfilePage = () => {
                                     <div className='relative'>
                                         <input
                                             type='text'
+                                            name='level'
+                                            value={skillData.level}
+                                            onChange={handleSkillInputChange}
                                             placeholder='level'
                                             className="p-2 w-full rounded-lg outline-none border border-black pr-8"
                                         />
@@ -278,10 +442,13 @@ const CandidateProfilePage = () => {
                                 <FaXmark />
                             </button>
                         </div>
-                        <form>
+                        <form onSubmit={handleLanguageSubmit}>
                             <div className='grid grid-cols-4 items-center gap-2 my-2'>
                                 <input
                                     type="text"
+                                    name='name'
+                                    value={languageData.name}
+                                    onChange={handleLanguageInputChange}
                                     placeholder="Language name"
                                     className="p-2 rounded-lg outline-none border border-black col-span-3"
                                 />
@@ -289,6 +456,9 @@ const CandidateProfilePage = () => {
                                     <div className='relative'>
                                         <input
                                             type='text'
+                                            name='level'
+                                            value={languageData.level}
+                                            onChange={handleLanguageInputChange}
                                             placeholder='level'
                                             className="p-2 w-full rounded-lg outline-none border border-black pr-8"
                                         />

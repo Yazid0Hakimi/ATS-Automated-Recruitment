@@ -76,6 +76,11 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
+    public List<Job> getJobsByCompany(Long companyId) {
+        return jobRepository.findByCompanyId(companyId);
+    }
+
+    @Override
     public Long countJobs() {
         return jobRepository.count();
     }

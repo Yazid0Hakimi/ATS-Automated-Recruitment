@@ -3,15 +3,16 @@ import Navbar from '../components/Navbar'
 import { FaSearch } from 'react-icons/fa'
 import { FiChevronsRight } from "react-icons/fi";
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const JobCandidates = () => {
     const [candidateForJob, setCandidateForJob] = useState([])
+    const { id } = useParams()
 
     useEffect(() => {
         const fetchCandidates = async () => {
             try {
-                const res = await axios.get(`http://localhost:8085/candidatesByJobId/1`);
+                const res = await axios.get(`http://localhost:8085/applications/job/${id}`);
                 console.log(res.data);
                 setCandidateForJob(res.data);
             } catch (error) {

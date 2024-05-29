@@ -4,14 +4,18 @@ import { FaSearch, FaEye } from 'react-icons/fa'
 import { PiUsersThreeFill } from "react-icons/pi"
 import { MdEdit, MdDelete  } from "react-icons/md"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const MyJobs = () => {
     const [myJobs, setMyJobs] = useState([])
+    const formatDate = (date) => {
+        return new Date(date).toISOString().slice(0, 10);
+    };
 
     useEffect(() => {
         const fetchMyJobs = async () => {
             try {
-                const res = await axios.get(`http://localhost:8085/jobsByCandidateId/1`);
+                const res = await axios.get(`http://localhost:8085/companies/1/jobs`);
                 console.log(res.data);
                 setMyJobs(res.data);
             } catch (error) {
@@ -48,16 +52,16 @@ const MyJobs = () => {
                                     Job ID
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Company Name
+                                    Job Title
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Job Title
+                                    Job Type
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Job Domaine
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Application Date
+                                    Posted At
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Actions
@@ -67,24 +71,24 @@ const MyJobs = () => {
                         <tbody>
                             {myJobs.map((job, index) => (
                                 <tr key={index} class="bg-white border-b border-black">
-                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap ">
-                                        {job.jobId}
-                                    </th>
                                     <td class="px-6 py-4">
-                                        {job.company.name}
+                                        {job.id}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {job.jobTitle}
+                                        {job.title}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {job.jobDomaine}
+                                        {job.jobType}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {job.applicationDate}
+                                        {job.jobDomain}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {formatDate(job.postedAt)}
                                     </td>
                                     <td class="px-6 py-4 flex gap-1">
-                                        <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><FaEye /></button>
-                                        <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><PiUsersThreeFill /></button>
+                                        <Link to={`/jobs/${job.id}`} className='bg-[#2D82B7] text-white p-2 rounded text-xl'><FaEye /></Link>
+                                        <Link to={`/my-jobs/${job.id}`} className='bg-[#2D82B7] text-white p-2 rounded text-xl'><PiUsersThreeFill /></Link>
                                         <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdEdit /></button>
                                         <button className='bg-[#2D82B7] text-white p-2 rounded text-xl'><MdDelete /></button>
                                     </td>

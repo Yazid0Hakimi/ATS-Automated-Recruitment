@@ -20,10 +20,25 @@ const AdminSettingsPage = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Here you can handle form submission logic, such as sending updated data to the server
         console.log('Updated admin data:', adminData);
+        // try {
+        //     const response = await axios.post('http://localhost:8085/admin', formData);
+        //     console.log('Admin created successfully:', response.data);
+        //     alert("Admin created Successfully!");
+        // } catch (error) {
+        //     console.error('Error creating admin:', error);
+        //     alert("Something went wrong!");
+        // }
+        // // Reset form after submission
+        // setFormData({
+        //     firstName: '',
+        //     lastName: '',
+        //     password: '',
+        //     email: ''
+        // });
         // Optionally, you could show a success message or redirect the user
     };
 

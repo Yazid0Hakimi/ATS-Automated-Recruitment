@@ -13,7 +13,7 @@ const ExperienceCard = ({experience}) => {
             className='w-12 h-12 border border-[#2D82B7] rounded-lg'
             />
             <div>
-                <h3 className='text-xl font-semibold text-black'>{experience.jobTitle}</h3>
+                <h3 className='text-xl font-semibold text-black'>{experience.title}</h3>
                 <h4 className='text-base text-gray-500 font-semibold'>{experience.company}</h4>
                 <p className='text-sm text-gray-500'>{formatDate(experience.startDate)} | {experience.endDate ? formatDate(experience.endDate) : 'Now'}</p>
                 <p className='text-sm text-gray-500'>{experience.city}</p>

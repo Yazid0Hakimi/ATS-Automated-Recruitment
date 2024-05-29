@@ -1,7 +1,9 @@
 package ma.enset.backend.controllers;
 
 import ma.enset.backend.entities.Company;
+import ma.enset.backend.entities.Job;
 import ma.enset.backend.services.CompanyService;
+import ma.enset.backend.services.JobService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +13,11 @@ import java.util.List;
 @CrossOrigin("*")
 public class CompanyController {
     private CompanyService companyService;
+    private JobService jobService;
 
-    public CompanyController(CompanyService companyService) {
+    public CompanyController(CompanyService companyService, JobService jobService) {
         this.companyService = companyService;
+        this.jobService = jobService;
     }
 
     @GetMapping
@@ -24,6 +28,11 @@ public class CompanyController {
     @GetMapping("/{id}")
     public Company getCompanyById(@PathVariable Long id) {
         return companyService.getCompanyById(id);
+    }
+
+    @GetMapping("/{companyId}/jobs")
+    public List<Job> getJobsByCompany(@PathVariable Long companyId) {
+        return jobService.getJobsByCompany(companyId);
     }
 
     @PostMapping("/count")
